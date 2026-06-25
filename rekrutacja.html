@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rekrutacja 2026/2027 — Przedszkole św. Jacka w Straszynie</title>
+<meta name="description" content="Zapisy do Przedszkola św. Jacka w Straszynie na rok 2026/2027. Przyjmujemy dzieci w wieku 2,5–6 lat. Sprawdź zasady, dokumenty i terminy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23332a; --ink-soft:#4d5e53;
+    --leaf:#356a45; --leaf-d:#274e34; --leaf-l:#5b8f68;
+    --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
+    --biedronka:#d24a39; --motyl:#3f7dae; --pszczola:#e0a02b;
+    --line:rgba(35,51,42,.12);
+    --shadow:0 14px 40px -22px rgba(39,78,52,.55);
+    --r:18px;
+    --head:'Baloo 2',system-ui,sans-serif;
+    --body:'Nunito Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.12;margin:0;color:var(--ink)}
+  h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+  h3{font-size:1.18rem;font-weight:600}
+  p{margin:0 0 1rem}
+  a{color:var(--leaf-d);text-underline-offset:3px}
+  svg{max-width:100%;display:block}
+  .wrap{width:min(1120px,92vw);margin-inline:auto}
+  section{padding:clamp(2.8rem,6vw,4.6rem) 0}
+  .eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
+  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
+  :focus-visible{outline:3px solid var(--leaf-l);outline-offset:3px;border-radius:6px}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:1rem;padding:.72rem 1.35rem;border-radius:100px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,background .18s}
+  .btn-primary{background:var(--leaf);color:#fff;box-shadow:0 10px 24px -12px rgba(53,106,69,.8)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--leaf-d)}
+  .btn-ghost{background:transparent;color:var(--leaf-d);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--leaf);background:#fff}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:1.5rem;padding:.7rem 0;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
+  .brand .mark{width:44px;height:44px;flex:none}
+  .brand b{font-family:var(--head);font-weight:700;font-size:1.12rem;line-height:1;display:block}
+  .brand span{font-size:.78rem;color:var(--ink-soft)}
+  .menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
+  .menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
+  .menu a:hover,.menu a.active{color:var(--leaf)}
+  .nav-cta{display:flex;align-items:center;gap:.6rem}
+  .burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
+  .burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0}
+
+  .page-hero{background:var(--sage);padding:clamp(2.4rem,5vw,3.6rem) 0}
+  .crumbs{font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}.crumbs a:hover{color:var(--leaf)}
+  .page-hero h1{font-size:clamp(2rem,4.6vw,3rem);font-weight:700}
+  .page-hero .lead{margin-top:.8rem}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1rem}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow)}
+  .step .n{width:38px;height:38px;border-radius:50%;background:var(--leaf);color:#fff;display:grid;place-items:center;font-family:var(--head);font-weight:700;margin-bottom:.8rem}
+  .step h3{margin-bottom:.3rem}
+  .step p{margin:0;color:var(--ink-soft);font-size:.97rem}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,2.6rem)}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.7rem}
+  .ticks{list-style:none;margin:0;padding:0}
+  .ticks li{display:flex;gap:.7rem;padding:.5rem 0;align-items:flex-start}
+  .ticks svg{color:var(--leaf);flex:none;margin-top:.2rem}
+  .docs{list-style:none;margin:.4rem 0 0;padding:0}
+  .docs li{display:flex;align-items:center;gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+  .docs li:last-child{border:0}
+  .docs .file{width:40px;height:40px;border-radius:11px;background:var(--sage);color:var(--leaf-d);display:grid;place-items:center;flex:none}
+  .docs b{font-family:var(--head);font-weight:600}
+  .docs small{color:var(--ink-soft);display:block;font-size:.86rem}
+  .docs a{margin-left:auto;text-decoration:none;font-family:var(--head);font-weight:600;color:var(--leaf-d);white-space:nowrap}
+
+  .cta-band{background:var(--leaf-d);color:#fff;border-radius:26px;padding:clamp(2rem,5vw,3rem);box-shadow:var(--shadow);display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center}
+  .cta-band h2{color:#fff}
+  .cta-band .lead{color:rgba(255,255,255,.85)}
+  .cta-band .phone{font-family:var(--head);font-weight:700;font-size:1.8rem;color:#fff;text-decoration:none;display:block}
+  .cta-band small{color:rgba(255,255,255,.78)}
+  .cta-band .box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:1.5rem;text-align:center}
+
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:.7rem;padding:0 1.3rem}
+  .faq summary{font-family:var(--head);font-weight:600;cursor:pointer;list-style:none;padding:1.05rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:1.5rem;color:var(--leaf);line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq details[open] summary{border-bottom:1px solid var(--line)}
+  .faq p{padding:1rem 0;margin:0;color:var(--ink-soft)}
+
+  footer{background:var(--ink);color:#cfd8cf;padding:3rem 0 2rem;font-size:.95rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+  footer .brand b{color:#fff}
+  footer h4{font-family:var(--head);color:#fff;font-size:1rem;margin:0 0 .7rem}
+  footer a{color:#cfd8cf;text-decoration:none}footer a:hover{color:#fff}
+  footer ul{list-style:none;margin:0;padding:0;line-height:2}
+  .foot-bottom{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.85rem;color:#9fb0a2}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(max-width:880px){
+    .steps,.two,.cta-band,.foot-grid{grid-template-columns:1fr}
+    .menu,.nav-cta .btn-ghost{display:none}
+    .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem}
+    .menu.open a{padding:.5rem 0;border-bottom:1px solid var(--line)}
+    .burger{display:block}
+  }
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 48 48">
+    <rect x="1.5" y="1.5" width="45" height="45" rx="14" fill="#356a45"/>
+    <path d="M24 12.5l2.4 3.2h-4.8z" fill="#fff"/><circle cx="24" cy="11" r="1.5" fill="#e0a02b"/>
+    <g fill="#fff"><circle cx="24" cy="24" r="7.4"/><circle cx="18.4" cy="27" r="5.2"/><circle cx="29.6" cy="27" r="5.2"/></g>
+    <rect x="22.7" y="28" width="2.6" height="9" rx="1.3" fill="#274e34"/>
+    <circle cx="18.5" cy="26.5" r="1.5" fill="#d24a39"/><circle cx="24" cy="24" r="1.5" fill="#3f7dae"/><circle cx="29.5" cy="26.5" r="1.5" fill="#e0a02b"/>
+  </symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Strona główna">
+      <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
+      <span><b>Przedszkole św. Jacka</b><span>w Straszynie</span></span>
+    </a>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="index.html#o-nas">O nas</a></li>
+        <li><a href="index.html#oferta">Oferta</a></li>
+        <li><a href="index.html#oplaty">Opłaty</a></li>
+        <li><a href="rekrutacja.html" class="active">Rekrutacja</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#kontakt-rekrutacja">Zapisz dziecko</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Start</a> › Rekrutacja</div>
+    <p class="eyebrow">Rok szkolny 2026/2027</p>
+    <h1>Zapisy są otwarte</h1>
+    <p class="lead">Zapraszamy dzieci w wieku 2,5–6 lat. Rekrutację prowadzimy przez cały rok, w miarę wolnych miejsc — a najchętniej zaczynamy od wspólnej wizyty w przedszkolu.</p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem">
+      <a class="btn btn-primary" href="tel:+48507700418">📞 Zadzwoń: 507 700 418</a>
+      <a class="btn btn-ghost" href="#dokumenty">Dokumenty do pobrania</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Jak zapisać dziecko</p>
+    <h2 class="reveal">Trzy proste kroki</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Zadzwoń</h3><p>Skontaktuj się z nami pod numerem 507 700 418 w godzinach 10:00–12:00. Powiemy, czy w wybranej grupie są wolne miejsca.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Odwiedź nas</h3><p>Umów się na wizytę. Pokażemy sale, plac zabaw i ogród, poznasz wychowawców i atmosferę przedszkola.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Zapisz dziecko</h3><p>Wypełnij i złóż kartę zgłoszeniową. Przed wrześniem zaprosimy na spotkanie adaptacyjne, by start był spokojny.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap two">
+    <div class="panel reveal">
+      <h3 style="margin-bottom:.8rem">Kogo przyjmujemy</h3>
+      <ul class="ticks">
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Dzieci w wieku <b>2,5 – 6 lat</b>, do grup różnowiekowych.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Wszystkie dzieci — niezależnie od przynależności do parafii.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Realizujemy obowiązkowe roczne przygotowanie przedszkolne dla sześciolatków.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Rodzeństwo dzieci już uczęszczających ma <b>20% zniżki</b> opłaty stałej.</span></li>
+      </ul>
+    </div>
+    <div class="panel reveal">
+      <h3 style="margin-bottom:.8rem">Warto wiedzieć</h3>
+      <ul class="ticks">
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg><span>Czynne od <b>6:00 do 17:30</b>, 11 miesięcy w roku (lipiec wolny).</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h12v9H4zM7 7V4h6v3"/></svg><span>Opłata stała <b>850 zł</b> + 30 zł komitet; wyżywienie 19 zł/dzień.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 17s-6-4-6-9a6 6 0 0 1 6 0 6 6 0 0 1 6 0c0 5-6 9-6 9z"/></svg><span>Codzienny angielski, rytmika, religia oraz opieka psychologa i logopedy.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 10h14M10 3v14"/></svg><span><a href="index.html#oplaty">Zobacz pełne opłaty i ofertę →</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="dokumenty" style="padding-top:0">
+  <div class="wrap">
+    <div class="panel reveal">
+      <h2 style="margin-bottom:.4rem">Dokumenty do pobrania</h2>
+      <p style="color:var(--ink-soft);margin-bottom:.4rem">Kartę zgłoszeniową można złożyć osobiście w przedszkolu.</p>
+      <ul class="docs">
+        <li>
+          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span><b>Karta zgłoszeniowa</b><small>format .doc</small></span>
+          <a href="#">Pobierz</a>
+        </li>
+        <li>
+          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span><b>Podstawa programowa wychowania przedszkolnego</b><small>format .pdf</small></span>
+          <a href="#">Pobierz</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt-rekrutacja" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <p class="eyebrow" style="color:var(--pszczola)">Masz pytania?</p>
+        <h2>Najlepiej po prostu zadzwoń</h2>
+        <p class="lead">Chętnie opowiemy o wolnych miejscach i umówimy wizytę. Możesz też napisać do nas e-mail — odpowiemy najszybciej, jak to możliwe.</p>
+        <a class="btn btn-primary" style="background:var(--pszczola);color:#3a2a06" href="mailto:przedszkole@straszyn.org">Napisz do nas</a>
+      </div>
+      <div class="box">
+        <a class="phone" href="tel:+48507700418">507 700 418</a>
+        <small>czynne w godz. 10:00–12:00</small>
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,.16);margin:1rem 0">
+        <div style="font-family:var(--head);color:#fff">ul. Poprzeczna 24<br>83-010 Straszyn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Najczęstsze pytania</p>
+    <h2 class="reveal" style="margin-bottom:1.4rem">Zanim zapiszecie dziecko</h2>
+    <div class="faq">
+      <details><summary>Od jakiego wieku przyjmujecie dzieci?</summary><p>Przyjmujemy dzieci w wieku od 2,5 do 6 lat. Najmłodsze trafiają do grup różnowiekowych, w których starsze dzieci naturalnie pomagają młodszym.</p></details>
+      <details><summary>Czy dziecko musi należeć do parafii?</summary><p>Nie. Przedszkole jest ogólnodostępne — przyjmujemy wszystkie dzieci, niezależnie od przynależności parafialnej. Charakter przyparafialny widać w wartościach i atmosferze, nie w kryteriach zapisu.</p></details>
+      <details><summary>Ile kosztuje pobyt dziecka?</summary><p>Od 1 września 2026 opłata stała wynosi 850 zł miesięcznie plus 30 zł komitetu rodzicielskiego. Wyżywienie to 19 zł za dzień (odliczane za nieobecność), a wyprawka — 150 zł na rok. Drugie i kolejne dziecko ma 20% zniżki opłaty stałej.</p></details>
+      <details><summary>W jakich godzinach jest otwarte przedszkole?</summary><p>Pracujemy codziennie od 6:00 do 17:30 i jesteśmy otwarci 11 miesięcy w roku. Lipiec jest miesiącem wakacyjnym — przedszkole jest wtedy zamknięte.</p></details>
+      <details><summary>Czy dzieci dostają posiłki?</summary><p>Tak, oferujemy trzy posiłki dziennie: śniadanie, obiad dwudaniowy i podwieczorek. Posiłki są wliczone w stawkę żywieniową 19 zł za dzień.</p></details>
+      <details><summary>Jak wygląda adaptacja nowego dziecka?</summary><p>W sierpniu, jeszcze przed rozpoczęciem roku, organizujemy spotkania adaptacyjne dla nowych dzieci i ich rodziców, żeby pierwszy dzień we wrześniu był spokojny i znajomy.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:1rem">
+          <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
+          <span><b>Przedszkole św. Jacka</b><span style="color:#9fb0a2">w Straszynie</span></span>
+        </a>
+        <p style="max-width:34ch;color:#9fb0a2">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
+      </div>
+      <div>
+        <h4>Przedszkole</h4>
+        <ul>
+          <li><a href="index.html#o-nas">O nas</a></li>
+          <li><a href="index.html#grupy">Nasze grupy</a></li>
+          <li><a href="index.html#oferta">Oferta</a></li>
+          <li><a href="index.html#oplaty">Opłaty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Dla rodziców</h4>
+        <ul>
+          <li><a href="rekrutacja.html">Rekrutacja</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="#">Dokumenty do pobrania</a></li>
+          <li><a href="#">Praca</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Przedszkole św. Jacka w Straszynie</span>
+      <span>ul. Poprzeczna 24 · 507 700 418 · przedszkole@straszyn.org</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

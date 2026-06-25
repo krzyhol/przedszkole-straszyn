@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praca — Przedszkole św. Jacka w Straszynie</title>
+<meta name="description" content="Dołącz do zespołu Przedszkola św. Jacka w Straszynie. Zżyty zespół, rozwój zawodowy i praca z sensem w kameralnych grupach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23332a; --ink-soft:#4d5e53;
+    --leaf:#356a45; --leaf-d:#274e34; --leaf-l:#5b8f68;
+    --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
+    --biedronka:#d24a39; --motyl:#3f7dae; --pszczola:#e0a02b;
+    --line:rgba(35,51,42,.12);
+    --shadow:0 14px 40px -22px rgba(39,78,52,.55);
+    --r:18px;
+    --head:'Baloo 2',system-ui,sans-serif;
+    --body:'Nunito Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.12;margin:0;color:var(--ink)}
+  h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+  h3{font-size:1.18rem;font-weight:600}
+  p{margin:0 0 1rem}
+  a{color:var(--leaf-d);text-underline-offset:3px}
+  svg{max-width:100%;display:block}
+  .wrap{width:min(1120px,92vw);margin-inline:auto}
+  section{padding:clamp(2.8rem,6vw,4.4rem) 0}
+  .eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
+  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
+  :focus-visible{outline:3px solid var(--leaf-l);outline-offset:3px;border-radius:6px}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:1rem;padding:.72rem 1.35rem;border-radius:100px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,background .18s}
+  .btn-primary{background:var(--leaf);color:#fff;box-shadow:0 10px 24px -12px rgba(53,106,69,.8)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--leaf-d)}
+  .btn-ghost{background:transparent;color:var(--leaf-d);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--leaf);background:#fff}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:1.5rem;padding:.7rem 0;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
+  .brand .mark{width:44px;height:44px;flex:none}
+  .brand b{font-family:var(--head);font-weight:700;font-size:1.12rem;line-height:1;display:block}
+  .brand span{font-size:.78rem;color:var(--ink-soft)}
+  .menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
+  .menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
+  .menu a:hover,.menu a.active{color:var(--leaf)}
+  .nav-cta{display:flex;align-items:center;gap:.6rem}
+  .burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
+  .burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0}
+
+  .page-hero{background:var(--sage);padding:clamp(2.4rem,5vw,3.6rem) 0}
+  .crumbs{font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}.crumbs a:hover{color:var(--leaf)}
+  .page-hero h1{font-size:clamp(2rem,4.6vw,3rem);font-weight:700}
+  .page-hero .lead{margin-top:.8rem}
+
+  .perks{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:1rem}
+  .perk{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1.35rem;box-shadow:var(--shadow)}
+  .perk .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--sage);color:var(--leaf-d);margin-bottom:.9rem}
+  .perk h3{margin-bottom:.3rem}
+  .perk p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+
+  .note{background:#fff;border:1px dashed var(--leaf-l);border-radius:14px;padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1.4rem;font-size:.95rem;color:var(--ink-soft)}
+  .note svg{color:var(--leaf);flex:none;margin-top:.15rem}
+
+  .jobs details{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:.8rem;padding:0 1.4rem;box-shadow:var(--shadow)}
+  .jobs summary{cursor:pointer;list-style:none;padding:1.2rem 0;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+  .jobs summary::-webkit-details-marker{display:none}
+  .jobs summary h3{margin:0}
+  .jobs .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-left:auto}
+  .tag{font-family:var(--head);font-weight:600;font-size:.78rem;background:var(--sage);color:var(--leaf-d);padding:.25rem .7rem;border-radius:100px}
+  .jobs summary::after{content:"+";font-size:1.5rem;color:var(--leaf);line-height:1;margin-left:.4rem}
+  .jobs details[open] summary::after{content:"–"}
+  .jobs details[open] summary{border-bottom:1px solid var(--line)}
+  .jobs .body{padding:1.1rem 0 1.3rem}
+  .jobs .body p{margin:0 0 .6rem;color:var(--ink-soft)}
+  .jobs .body ul{margin:.2rem 0 1rem;padding-left:1.1rem;color:var(--ink-soft)}
+  .jobs .body li{margin:.25rem 0}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,2.6rem)}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.7rem}
+  .ticks{list-style:none;margin:0;padding:0}
+  .ticks li{display:flex;gap:.7rem;padding:.5rem 0;align-items:flex-start}
+  .ticks svg{color:var(--leaf);flex:none;margin-top:.2rem}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow)}
+  .step .n{width:38px;height:38px;border-radius:50%;background:var(--leaf);color:#fff;display:grid;place-items:center;font-family:var(--head);font-weight:700;margin-bottom:.8rem}
+  .step h3{margin-bottom:.3rem}
+  .step p{margin:0;color:var(--ink-soft);font-size:.97rem}
+
+  .cta-band{background:var(--leaf-d);color:#fff;border-radius:26px;padding:clamp(2rem,5vw,3rem);box-shadow:var(--shadow);display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center}
+  .cta-band h2{color:#fff}
+  .cta-band .lead{color:rgba(255,255,255,.85)}
+  .cta-band .box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:1.5rem;text-align:center}
+  .cta-band .mail{font-family:var(--head);font-weight:700;font-size:1.25rem;color:#fff;text-decoration:none;word-break:break-all}
+  .cta-band small{color:rgba(255,255,255,.78)}
+
+  footer{background:var(--ink);color:#cfd8cf;padding:3rem 0 2rem;font-size:.95rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+  footer .brand b{color:#fff}
+  footer h4{font-family:var(--head);color:#fff;font-size:1rem;margin:0 0 .7rem}
+  footer a{color:#cfd8cf;text-decoration:none}footer a:hover{color:#fff}
+  footer ul{list-style:none;margin:0;padding:0;line-height:2}
+  .foot-bottom{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.85rem;color:#9fb0a2}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(max-width:880px){
+    .perks{grid-template-columns:1fr 1fr}
+    .two,.steps,.cta-band,.foot-grid{grid-template-columns:1fr}
+    .menu,.nav-cta .btn-ghost{display:none}
+    .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem}
+    .menu.open a{padding:.5rem 0;border-bottom:1px solid var(--line)}
+    .burger{display:block}
+  }
+  @media(max-width:520px){.perks{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 48 48">
+    <rect x="1.5" y="1.5" width="45" height="45" rx="14" fill="#356a45"/>
+    <path d="M24 12.5l2.4 3.2h-4.8z" fill="#fff"/><circle cx="24" cy="11" r="1.5" fill="#e0a02b"/>
+    <g fill="#fff"><circle cx="24" cy="24" r="7.4"/><circle cx="18.4" cy="27" r="5.2"/><circle cx="29.6" cy="27" r="5.2"/></g>
+    <rect x="22.7" y="28" width="2.6" height="9" rx="1.3" fill="#274e34"/>
+    <circle cx="18.5" cy="26.5" r="1.5" fill="#d24a39"/><circle cx="24" cy="24" r="1.5" fill="#3f7dae"/><circle cx="29.5" cy="26.5" r="1.5" fill="#e0a02b"/>
+  </symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Strona główna">
+      <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
+      <span><b>Przedszkole św. Jacka</b><span>w Straszynie</span></span>
+    </a>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="index.html#o-nas">O nas</a></li>
+        <li><a href="index.html#oferta">Oferta</a></li>
+        <li><a href="index.html#oplaty">Opłaty</a></li>
+        <li><a href="rekrutacja.html">Rekrutacja</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#aplikuj">Wyślij CV</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Start</a> › Praca</div>
+    <p class="eyebrow">Dołącz do nas</p>
+    <h1>Praca, która ma sens</h1>
+    <p class="lead">Szukamy ludzi, którzy lubią dzieci i chcą tworzyć je z nami w rodzinnej atmosferze. U nas zespół jest zżyty, a praca — spokojna, bliska i pełna codziennych małych radości.</p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem">
+      <a class="btn btn-primary" href="#aplikuj">Wyślij CV</a>
+      <a class="btn btn-ghost" href="#oferty">Zobacz oferty</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Dlaczego u nas</p>
+    <h2 class="reveal">Dobre miejsce do pracy</h2>
+    <div class="perks">
+      <div class="perk reveal">
+        <div class="ic" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="11" r="2.4"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5M13 20c.3-2 1.8-3.5 4-3.5s3.7 1.5 4 3.5"/></svg></div>
+        <h3>Zżyty zespół</h3>
+        <p>Atmosfera życzliwości przekłada się u nas na stałość zatrudnienia — ludzie zostają z nami na lata.</p>
+      </div>
+      <div class="perk reveal">
+        <div class="ic" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l9 5-9 5-9-5z"/><path d="M7 11v5c0 1 2.5 2.5 5 2.5s5-1.5 5-2.5v-5"/></svg></div>
+        <h3>Rozwój i szkolenia</h3>
+        <p>Wspieramy udział w kursach, szkoleniach i warsztatach. Nowe metody pracy wdrażamy razem.</p>
+      </div>
+      <div class="perk reveal">
+        <div class="ic" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h16v9H4zM4 10l8-6 8 6"/></svg></div>
+        <h3>Kameralne grupy</h3>
+        <p>Grupy różnowiekowe i opieka we dwoje na grupę — bliżej dziecka, spokojniej dla nauczyciela.</p>
+      </div>
+      <div class="perk reveal">
+        <div class="ic" aria-hidden="true"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+        <h3>Praca z wartościami</h3>
+        <p>Przedszkole przyparafialne, w którym liczy się dobro, szacunek i realna troska o dziecko.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="oferty" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Aktualne oferty</p>
+    <h2 class="reveal" style="margin-bottom:1.2rem">Otwarte rekrutacje</h2>
+    <div class="note">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 6h.01"/></svg>
+      <span>Poniższe ogłoszenia to wzór — wystarczy podmienić treść na aktualne wakaty. Gdy nie ma otwartych rekrutacji, zostawcie tylko kartę „aplikacja spontaniczna".</span>
+    </div>
+    <div class="jobs">
+      <details open>
+        <summary><h3>Nauczyciel wychowania przedszkolnego</h3><div class="tags"><span class="tag">Pełny etat</span><span class="tag">Straszyn</span></div></summary>
+        <div class="body">
+          <p>Poszukujemy nauczyciela do pracy z grupą różnowiekową — osoby kreatywnej, ciepłej i otwartej na potrzeby dzieci.</p>
+          <p style="font-family:var(--head);font-weight:600;color:var(--ink)">Wymagania:</p>
+          <ul>
+            <li>wykształcenie wyższe z przygotowaniem pedagogicznym (wychowanie przedszkolne),</li>
+            <li>zaangażowanie i odpowiedzialność w pracy z dziećmi,</li>
+            <li>gotowość do współpracy z rodzicami i zespołem.</li>
+          </ul>
+          <p style="font-family:var(--head);font-weight:600;color:var(--ink)">Oferujemy:</p>
+          <ul>
+            <li>stabilne zatrudnienie w zżytym zespole,</li>
+            <li>wsparcie w rozwoju zawodowym i szkoleniach,</li>
+            <li>pracę w kameralnym, rodzinnym przedszkolu.</li>
+          </ul>
+          <a class="btn btn-primary" href="#aplikuj">Aplikuj na to stanowisko</a>
+        </div>
+      </details>
+      <details>
+        <summary><h3>Pomoc nauczyciela</h3><div class="tags"><span class="tag">Pełny etat</span><span class="tag">Straszyn</span></div></summary>
+        <div class="body">
+          <p>Szukamy osoby do wsparcia nauczycieli w codziennej opiece nad dziećmi i organizacji dnia w grupie.</p>
+          <p style="font-family:var(--head);font-weight:600;color:var(--ink)">Mile widziane:</p>
+          <ul>
+            <li>doświadczenie w pracy z małymi dziećmi,</li>
+            <li>cierpliwość, życzliwość i dobra organizacja,</li>
+            <li>chęć współtworzenia ciepłej atmosfery.</li>
+          </ul>
+          <a class="btn btn-primary" href="#aplikuj">Aplikuj na to stanowisko</a>
+        </div>
+      </details>
+      <details>
+        <summary><h3>Aplikacja spontaniczna</h3><div class="tags"><span class="tag">Cały rok</span></div></summary>
+        <div class="body">
+          <p>Nie ma teraz ogłoszenia dla Ciebie, ale czujesz, że to Twoje miejsce? Napisz do nas — chętnie poznamy Twoje CV i wrócimy, gdy pojawi się odpowiedni wakat.</p>
+          <a class="btn btn-primary" href="#aplikuj">Wyślij zgłoszenie</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap two">
+    <div class="panel reveal">
+      <h3 style="margin-bottom:.8rem">Kogo szukamy</h3>
+      <ul class="ticks">
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Osób, które naprawdę lubią pracę z dziećmi.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Z odpowiednim wykształceniem i przygotowaniem do roli.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Cierpliwych, życzliwych i odpowiedzialnych.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11l4 4 8-9"/></svg><span>Którym bliskie są wartości naszego przedszkola.</span></li>
+      </ul>
+    </div>
+    <div class="panel reveal">
+      <h3 style="margin-bottom:.8rem">Jak aplikować — krok po kroku</h3>
+      <ul class="ticks">
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="14" height="11" rx="2"/><path d="M3 7l7 4 7-4"/></svg><span><b>Wyślij CV</b> na adres przedszkole@straszyn.org.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 5h12v8H9l-3 3v-3H4z"/></svg><span><b>Porozmawiajmy</b> — zaprosimy Cię na spotkanie i pokażemy przedszkole.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-6-4-6-9a6 6 0 0 1 6 0 6 6 0 0 1 6 0c0 5-6 9-6 9z"/></svg><span><b>Dołącz do zespołu</b> i zacznij pracę, która ma sens.</span></li>
+      </ul>
+      <p style="margin:1rem 0 0;font-size:.88rem;color:var(--ink-soft)">Prosimy o dopisanie w CV zgody na przetwarzanie danych osobowych na potrzeby rekrutacji.</p>
+    </div>
+  </div>
+</section>
+
+<section id="aplikuj" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <p class="eyebrow" style="color:var(--pszczola)">Aplikuj</p>
+        <h2>Wyślij nam swoje CV</h2>
+        <p class="lead">Napisz do nas albo zadzwoń — chętnie poznamy Cię bliżej. Każde zgłoszenie czytamy uważnie.</p>
+        <a class="btn btn-primary" style="background:var(--pszczola);color:#3a2a06" href="mailto:przedszkole@straszyn.org?subject=Aplikacja%20-%20praca%20w%20przedszkolu">Napisz e-mail</a>
+      </div>
+      <div class="box">
+        <a class="mail" href="mailto:przedszkole@straszyn.org">przedszkole@straszyn.org</a>
+        <hr style="border:0;border-top:1px solid rgba(255,255,255,.16);margin:1rem 0">
+        <a style="font-family:var(--head);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none" href="tel:+48507700418">507 700 418</a>
+        <br><small>czynne w godz. 10:00–12:00</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:1rem">
+          <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
+          <span><b>Przedszkole św. Jacka</b><span style="color:#9fb0a2">w Straszynie</span></span>
+        </a>
+        <p style="max-width:34ch;color:#9fb0a2">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
+      </div>
+      <div>
+        <h4>Przedszkole</h4>
+        <ul>
+          <li><a href="index.html#o-nas">O nas</a></li>
+          <li><a href="index.html#grupy">Nasze grupy</a></li>
+          <li><a href="index.html#oferta">Oferta</a></li>
+          <li><a href="index.html#oplaty">Opłaty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Dla rodziców</h4>
+        <ul>
+          <li><a href="rekrutacja.html">Rekrutacja</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="#">Dokumenty do pobrania</a></li>
+          <li><a href="praca.html">Praca</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Przedszkole św. Jacka w Straszynie</span>
+      <span>ul. Poprzeczna 24 · 507 700 418 · przedszkole@straszyn.org</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
