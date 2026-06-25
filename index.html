@@ -52,6 +52,8 @@
   .menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
   .menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
   .menu a:hover{color:var(--leaf)}
+  .menu a.menu-cta{background:var(--leaf);color:#fff;padding:.5rem 1.1rem;border-radius:100px}
+  .menu a.menu-cta:hover{background:var(--leaf-d);color:#fff}
   .nav-cta{display:flex;align-items:center;gap:.6rem}
   .burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
   .burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0;transition:.25s}
@@ -212,10 +214,10 @@
         <li><a href="#oferta">Oferta</a></li>
         <li><a href="#oplaty">Opłaty</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="rekrutacja.html" class="menu-cta">Rekrutacja</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="#rekrutacja">Zapisz dziecko</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -519,7 +521,7 @@
           <li><a href="rekrutacja.html">Rekrutacja</a></li>
           <li><a href="#">Dokumenty do pobrania</a></li>
           <li><a href="galeria.html">Galeria</a></li>
-          <li><a href="#">Praca</a></li>
+          <li><a href="praca.html">Praca</a></li>
         </ul>
       </div>
     </div>
