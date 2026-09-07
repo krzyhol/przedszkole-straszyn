@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Galeria — Przedszkole św. Jacka w Straszynie</title>
 <meta name="description" content="Galeria zdjęć z życia Przedszkola św. Jacka w Straszynie — uroczystości, święta, codzienność i zabawy na placu.">
+<meta name="theme-color" content="#356a45">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='1.5' y='1.5' width='45' height='45' rx='14' fill='%23356a45'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='24' cy='24' r='7.4'/%3E%3Ccircle cx='18.4' cy='27' r='5.2'/%3E%3Ccircle cx='29.6' cy='27' r='5.2'/%3E%3C/g%3E%3Crect x='22.7' y='28' width='2.6' height='9' rx='1.3' fill='%23274e34'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#23332a; --ink-soft:#4d5e53;
@@ -28,10 +30,12 @@
   a{color:var(--leaf-d)}
   svg{max-width:100%;display:block}
   .wrap{width:min(1120px,92vw);margin-inline:auto}
-  section{padding:clamp(2.4rem,6vw,4rem) 0}
+  section{padding:clamp(2.4rem,6vw,4rem) 0;scroll-margin-top:78px}
   .eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
   .lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
   :focus-visible{outline:3px solid var(--leaf-l);outline-offset:3px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:10px;z-index:100;background:var(--leaf);color:#fff;padding:.6rem 1rem;border-radius:8px;font-family:var(--head);font-weight:600;text-decoration:none}
+  .skip:focus{left:10px}
   .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:1rem;padding:.72rem 1.35rem;border-radius:100px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,background .18s}
   .btn-primary{background:var(--leaf);color:#fff;box-shadow:0 10px 24px -12px rgba(53,106,69,.8)}
   .btn-primary:hover{transform:translateY(-2px);background:var(--leaf-d)}
@@ -45,6 +49,8 @@
   .menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
   .menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
   .menu a:hover,.menu a.active{color:var(--leaf)}
+  .menu a.menu-cta{background:var(--leaf);color:#fff;padding:.5rem 1.1rem;border-radius:100px}
+  .menu a.menu-cta:hover,.menu a.menu-cta.active{background:var(--leaf-d);color:#fff}
   .nav-cta{display:flex;align-items:center;gap:.6rem}
   .burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
   .burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0}
@@ -66,10 +72,10 @@
   .gallery{columns:3;column-gap:1rem}
   .tile{break-inside:avoid;margin-bottom:1rem;border-radius:var(--r);overflow:hidden;position:relative;display:block;box-shadow:var(--shadow);cursor:pointer;border:0;width:100%;text-align:left;padding:0}
   .tile .ph{display:flex;align-items:flex-end;padding:1rem;color:#fff;position:relative}
-  .tile .ph svg.bgicon{position:absolute;top:-10px;right:-10px;width:90px;height:90px;opacity:.22}
-  .tile .meta{position:relative;z-index:1}
-  .tile .cat{font-family:var(--head);font-weight:600;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
-  .tile h3{color:#fff;font-size:1.15rem;font-weight:600;margin-top:.1rem}
+  .tile .ph svg.bgicon{position:absolute;top:-10px;right:-10px;width:90px;height:90px;opacity:.28;fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .tile .meta{display:block;position:relative;z-index:1}
+  .tile .cat{display:block;font-family:var(--head);font-weight:600;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+  .tile .ttl{display:block;font-family:var(--head);line-height:1.15;color:#fff;font-size:1.15rem;font-weight:600;margin-top:.1rem}
   .tile.t-sm .ph{min-height:150px}.tile.t-md .ph{min-height:210px}.tile.t-lg .ph{min-height:270px}
   .c-bied{background:var(--biedronka)}.c-mot{background:var(--motyl)}.c-psz{background:var(--pszczola)}.c-leaf{background:var(--leaf)}
   .tile .hint{position:absolute;inset:0;background:rgba(35,51,42,.0);display:grid;place-items:center;transition:.2s}
@@ -92,9 +98,11 @@
   @media(max-width:880px){
     .gallery{columns:2}
     .foot-grid{grid-template-columns:1fr}
-    .menu,.nav-cta .btn{display:none}
-    .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem}
-    .menu.open a{padding:.5rem 0;border-bottom:1px solid var(--line)}
+    .menu{display:none}
+    .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem;gap:.4rem;box-shadow:var(--shadow)}
+    .menu.open li{width:100%}
+    .menu.open a{display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+    .menu.open a.menu-cta{display:inline-block;border-bottom:0;margin-top:.6rem;padding:.55rem 1.2rem}
     .burger{display:block}
   }
   @media(max-width:540px){.gallery{columns:1}}
@@ -116,28 +124,31 @@
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3M4 4l2 2M18 18l2 2M20 4l-2 2M6 18l-2 2"/></symbol>
 </svg>
 
+<a class="skip" href="#tresc">Przejdź do treści</a>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="Strona główna">
+    <a class="brand" href="index.html" aria-label="Przedszkole św. Jacka w Straszynie — strona główna">
       <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
       <span><b>Przedszkole św. Jacka</b><span>w Straszynie</span></span>
     </a>
-    <nav>
+    <nav aria-label="Menu główne">
       <ul class="menu" id="menu">
         <li><a href="index.html#o-nas">O nas</a></li>
+        <li><a href="index.html#grupy">Grupy</a></li>
         <li><a href="index.html#oferta">Oferta</a></li>
         <li><a href="index.html#oplaty">Opłaty</a></li>
-        <li><a href="rekrutacja.html">Rekrutacja</a></li>
         <li><a href="galeria.html" class="active">Galeria</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="rekrutacja.html" class="menu-cta">Rekrutacja</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="rekrutacja.html">Zapisz dziecko</a>
-      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
+
+<main id="tresc">
 
 <div class="page-hero">
   <div class="wrap">
@@ -155,26 +166,26 @@
 <section>
   <div class="wrap">
     <div class="filters" id="filters">
-      <button class="filter active" data-cat="all">Wszystko</button>
-      <button class="filter" data-cat="uroczystosci">Uroczystości</button>
-      <button class="filter" data-cat="swieta">Święta</button>
-      <button class="filter" data-cat="codziennosc">Codzienność</button>
-      <button class="filter" data-cat="plac">Plac zabaw</button>
+      <button type="button" class="filter active" aria-pressed="true" data-cat="all">Wszystko</button>
+      <button type="button" class="filter" aria-pressed="false" data-cat="uroczystosci">Uroczystości</button>
+      <button type="button" class="filter" aria-pressed="false" data-cat="swieta">Święta</button>
+      <button type="button" class="filter" aria-pressed="false" data-cat="codziennosc">Codzienność</button>
+      <button type="button" class="filter" aria-pressed="false" data-cat="plac">Plac zabaw</button>
     </div>
 
     <div class="gallery" id="gallery">
-      <button class="tile t-lg" data-cat="swieta"><div class="ph c-bied"><svg class="bgicon" aria-hidden="true"><use href="#i-gift"/></svg><div class="meta"><div class="cat">Święta</div><h3>Mikołajki</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-md" data-cat="uroczystosci"><div class="ph c-mot"><svg class="bgicon" aria-hidden="true"><use href="#i-star"/></svg><div class="meta"><div class="cat">Uroczystości</div><h3>Pasowanie na przedszkolaka</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-sm" data-cat="codziennosc"><div class="ph c-leaf"><svg class="bgicon" aria-hidden="true"><use href="#i-leaf"/></svg><div class="meta"><div class="cat">Codzienność</div><h3>Dokarmianie ptaków</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-md" data-cat="swieta"><div class="ph c-psz"><svg class="bgicon" aria-hidden="true"><use href="#i-star"/></svg><div class="meta"><div class="cat">Święta</div><h3>Spotkanie wigilijne</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-lg" data-cat="uroczystosci"><div class="ph c-mot"><svg class="bgicon" aria-hidden="true"><use href="#i-gift"/></svg><div class="meta"><div class="cat">Uroczystości</div><h3>Dzień Babci i Dziadka</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-sm" data-cat="plac"><div class="ph c-leaf"><svg class="bgicon" aria-hidden="true"><use href="#i-sun"/></svg><div class="meta"><div class="cat">Plac zabaw</div><h3>Zabawy w ogrodzie</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-md" data-cat="uroczystosci"><div class="ph c-bied"><svg class="bgicon" aria-hidden="true"><use href="#i-star"/></svg><div class="meta"><div class="cat">Uroczystości</div><h3>Dzień Mamy i Taty</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-md" data-cat="swieta"><div class="ph c-psz"><svg class="bgicon" aria-hidden="true"><use href="#i-leaf"/></svg><div class="meta"><div class="cat">Święta</div><h3>Pisanki i palmy wielkanocne</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-sm" data-cat="codziennosc"><div class="ph c-mot"><svg class="bgicon" aria-hidden="true"><use href="#i-sun"/></svg><div class="meta"><div class="cat">Codzienność</div><h3>Zajęcia plastyczne</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-lg" data-cat="uroczystosci"><div class="ph c-leaf"><svg class="bgicon" aria-hidden="true"><use href="#i-gift"/></svg><div class="meta"><div class="cat">Uroczystości</div><h3>Bal karnawałowy</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-md" data-cat="codziennosc"><div class="ph c-psz"><svg class="bgicon" aria-hidden="true"><use href="#i-sun"/></svg><div class="meta"><div class="cat">Codzienność</div><h3>Angielski na wesoło</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
-      <button class="tile t-sm" data-cat="plac"><div class="ph c-bied"><svg class="bgicon" aria-hidden="true"><use href="#i-leaf"/></svg><div class="meta"><div class="cat">Plac zabaw</div><h3>Spacery po okolicy</h3></div></div><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-lg" data-cat="swieta"><span class="ph c-bied"><svg class="bgicon" aria-hidden="true"><use href="#i-gift"/></svg><span class="meta"><span class="cat">Święta</span><span class="ttl">Mikołajki</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-md" data-cat="uroczystosci"><span class="ph c-mot"><svg class="bgicon" aria-hidden="true"><use href="#i-star"/></svg><span class="meta"><span class="cat">Uroczystości</span><span class="ttl">Pasowanie na przedszkolaka</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-sm" data-cat="codziennosc"><span class="ph c-leaf"><svg class="bgicon" aria-hidden="true"><use href="#i-leaf"/></svg><span class="meta"><span class="cat">Codzienność</span><span class="ttl">Dokarmianie ptaków</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-md" data-cat="swieta"><span class="ph c-psz"><svg class="bgicon" aria-hidden="true"><use href="#i-star"/></svg><span class="meta"><span class="cat">Święta</span><span class="ttl">Spotkanie wigilijne</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-lg" data-cat="uroczystosci"><span class="ph c-mot"><svg class="bgicon" aria-hidden="true"><use href="#i-gift"/></svg><span class="meta"><span class="cat">Uroczystości</span><span class="ttl">Dzień Babci i Dziadka</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-sm" data-cat="plac"><span class="ph c-leaf"><svg class="bgicon" aria-hidden="true"><use href="#i-sun"/></svg><span class="meta"><span class="cat">Plac zabaw</span><span class="ttl">Zabawy w ogrodzie</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-md" data-cat="uroczystosci"><span class="ph c-bied"><svg class="bgicon" aria-hidden="true"><use href="#i-star"/></svg><span class="meta"><span class="cat">Uroczystości</span><span class="ttl">Dzień Mamy i Taty</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-md" data-cat="swieta"><span class="ph c-psz"><svg class="bgicon" aria-hidden="true"><use href="#i-leaf"/></svg><span class="meta"><span class="cat">Święta</span><span class="ttl">Pisanki i palmy wielkanocne</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-sm" data-cat="codziennosc"><span class="ph c-mot"><svg class="bgicon" aria-hidden="true"><use href="#i-sun"/></svg><span class="meta"><span class="cat">Codzienność</span><span class="ttl">Zajęcia plastyczne</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-lg" data-cat="uroczystosci"><span class="ph c-leaf"><svg class="bgicon" aria-hidden="true"><use href="#i-gift"/></svg><span class="meta"><span class="cat">Uroczystości</span><span class="ttl">Bal karnawałowy</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-md" data-cat="codziennosc"><span class="ph c-psz"><svg class="bgicon" aria-hidden="true"><use href="#i-sun"/></svg><span class="meta"><span class="cat">Codzienność</span><span class="ttl">Angielski na wesoło</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
+      <button type="button" class="tile t-sm" data-cat="plac"><span class="ph c-bied"><svg class="bgicon" aria-hidden="true"><use href="#i-leaf"/></svg><span class="meta"><span class="cat">Plac zabaw</span><span class="ttl">Spacery po okolicy</span></span></span><span class="hint"><span>Wstaw zdjęcie</span></span></button>
     </div>
   </div>
 </section>
@@ -188,6 +199,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">
@@ -212,15 +225,16 @@
         <h4>Dla rodziców</h4>
         <ul>
           <li><a href="rekrutacja.html">Rekrutacja</a></li>
+          <li><a href="dokumenty.html">Dokumenty do pobrania</a></li>
+          <li><a href="aktualnosci.html">Aktualności</a></li>
           <li><a href="galeria.html">Galeria</a></li>
-          <li><a href="#">Dokumenty do pobrania</a></li>
           <li><a href="praca.html">Praca</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Przedszkole św. Jacka w Straszynie</span>
-      <span>ul. Poprzeczna 24 · 507 700 418 · przedszkole@straszyn.org</span>
+      <span>© 2026 Przedszkole św. Jacka w Straszynie · <a href="polityka-prywatnosci.html">Polityka prywatności</a></span>
+      <span>ul. Poprzeczna 24 · <a href="tel:+48507700418">507 700 418</a> · <a href="mailto:przedszkole@straszyn.org">przedszkole@straszyn.org</a></span>
     </div>
   </div>
 </footer>
@@ -228,9 +242,12 @@
 <script>
   const burger=document.getElementById('burger'),menu=document.getElementById('menu');
   burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  const closeMenu=()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)};
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){closeMenu();burger.focus()}});
   const filters=document.querySelectorAll('.filter'),tiles=document.querySelectorAll('.tile');
   filters.forEach(f=>f.addEventListener('click',()=>{
-    filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');
+    filters.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false')});f.classList.add('active');f.setAttribute('aria-pressed','true');
     const c=f.dataset.cat;
     tiles.forEach(t=>{t.style.display=(c==='all'||t.dataset.cat===c)?'':'none'});
   }));
