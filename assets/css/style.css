@@ -1,0 +1,163 @@
+/* Przedszkole św. Jacka w Straszynie — style wspólne dla wszystkich stron.
+   Style używane tylko na jednej stronie zostają w jej <style>. */
+
+:root{
+  --ink:#23332a; --ink-soft:#4d5e53;
+  --leaf:#356a45; --leaf-d:#274e34; --leaf-l:#5b8f68;
+  --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
+  --biedronka:#d24a39; --motyl:#3f7dae; --pszczola:#e0a02b;
+  --biedronka-t:#c54636; --motyl-t:#3b76a4; --pszczola-l:#f2bd52; /* odcienie z kontrastem WCAG AA dla tekstu */
+  --honey-ink:#3a2a06; /* tekst na tle pszczółkowym */
+  --line:rgba(35,51,42,.12);
+  --shadow:0 14px 40px -22px rgba(39,78,52,.55);
+  --r:18px;
+  --head:'Baloo 2',system-ui,sans-serif;
+  --body:'Nunito Sans',system-ui,sans-serif;
+}
+
+/* podstawy */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.12;margin:0;color:var(--ink)}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+h3{font-size:1.18rem}
+p{margin:0 0 1rem}
+a{color:var(--leaf-d);text-underline-offset:3px}
+img,svg{max-width:100%;display:block}
+[hidden]{display:none!important}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+section{padding:clamp(2.8rem,6vw,4.6rem) 0;scroll-margin-top:78px}
+section.flush{padding-top:0}
+.eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
+.lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
+.label{font-family:var(--head);font-weight:600;color:var(--ink)}
+.section-title{margin-bottom:1.4rem}
+.actions{display:flex;gap:.8rem;flex-wrap:wrap}
+:focus-visible{outline:3px solid var(--leaf-l);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:10px;z-index:100;background:var(--leaf);color:#fff;padding:.6rem 1rem;border-radius:8px;font-family:var(--head);font-weight:600;text-decoration:none}
+.skip:focus{left:10px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* przyciski */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:1rem;padding:.72rem 1.35rem;border-radius:100px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s}
+.btn-primary{background:var(--leaf);color:#fff;box-shadow:0 10px 24px -12px rgba(53,106,69,.8)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--leaf-d)}
+.btn-honey{background:var(--pszczola);color:var(--honey-ink)}
+.btn-honey:hover{transform:translateY(-2px);background:var(--pszczola-l)}
+.btn-ghost{background:transparent;color:var(--leaf-d);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--leaf);background:#fff}
+.btn-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-light:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+/* nagłówek */
+header{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:1.5rem;padding:.7rem 0;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
+.brand .logo{height:48px;width:auto}
+.menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
+.menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
+.menu a:hover,.menu a[aria-current="page"]{color:var(--leaf)}
+.menu a.menu-cta{background:var(--leaf);color:#fff;padding:.5rem 1.1rem;border-radius:100px}
+.menu a.menu-cta:hover,.menu a.menu-cta[aria-current="page"]{background:var(--leaf-d);color:#fff}
+.nav-cta{display:flex;align-items:center;gap:.6rem}
+.burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
+.burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0}
+
+/* nagłówek podstrony */
+.page-hero{background:var(--sage);padding:clamp(2.4rem,5vw,3.6rem) 0}
+.page-hero h1{font-size:clamp(2rem,4.6vw,3rem);font-weight:700}
+.page-hero .lead{margin-top:.8rem}
+.page-hero .actions{margin-top:1.4rem}
+.crumbs{font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--leaf)}
+
+/* ramka z informacją */
+.note{background:#fff;border:1px dashed var(--leaf-l);border-radius:14px;padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1.4rem;font-size:.95rem;color:var(--ink-soft)}
+.note svg{color:var(--leaf);flex:none;margin-top:.15rem}
+.page-hero .note{margin:1.4rem 0 0}
+
+/* karty z ikoną (strona główna, praca) */
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.feat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1.35rem;box-shadow:var(--shadow)}
+.feat .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--sage);color:var(--leaf-d);margin-bottom:.9rem}
+.feat h3{margin-bottom:.35rem}
+.feat p{margin:0;font-size:.96rem;color:var(--ink-soft)}
+
+/* dwie kolumny paneli */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,2.6rem)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.7rem;box-shadow:var(--shadow)}
+.panel h2{margin-bottom:.4rem}
+.panel h3{margin-bottom:.8rem}
+.ticks{list-style:none;margin:0;padding:0}
+.ticks li{display:flex;gap:.7rem;padding:.5rem 0;align-items:flex-start}
+.ticks svg{color:var(--leaf);flex:none;margin-top:.2rem}
+
+/* lista dokumentów */
+.docs{list-style:none;margin:.4rem 0 0;padding:0}
+.docs li{display:flex;align-items:center;gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--line);scroll-margin-top:90px}
+.docs li:last-child{border:0}
+.docs .file{width:40px;height:40px;border-radius:11px;background:var(--sage);color:var(--leaf-d);display:grid;place-items:center;flex:none}
+.docs b{font-family:var(--head);font-weight:600}
+.docs small{color:var(--ink-soft);display:block;font-size:.86rem}
+.docs .dl{margin-left:auto;text-decoration:none;font-family:var(--head);font-weight:600;color:var(--leaf-d);white-space:nowrap}
+.docs .dl.soon{color:var(--ink-soft);cursor:default;font-size:.88rem}
+
+/* ciemny pas z wezwaniem do działania */
+.cta-band{background:var(--leaf-d);color:#fff;border-radius:26px;padding:clamp(2rem,5vw,3rem);box-shadow:var(--shadow)}
+.cta-band h2{color:#fff}
+.cta-band .lead{color:rgba(255,255,255,.85)}
+.cta-band .eyebrow{color:var(--pszczola-l)}
+.cta-band small{color:rgba(255,255,255,.78)}
+.cta-band.centered{text-align:center}
+.cta-band.centered .lead{margin:.6rem auto 1.4rem}
+.cta-band.centered .actions{justify-content:center}
+.cta-band.split{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center}
+.cta-band .box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:1.5rem;text-align:center}
+.cta-band .box hr{border:0;border-top:1px solid rgba(255,255,255,.16);margin:1rem 0}
+
+/* kolory grup (galeria, aktualności) */
+.c-bied{background:var(--biedronka-t)}
+.c-mot{background:var(--motyl-t)}
+.c-psz{background:var(--pszczola)}
+.c-leaf{background:var(--leaf)}
+
+/* stopka */
+footer{background:var(--ink);color:#cfd8cf;padding:3rem 0 2rem;font-size:.95rem}
+footer .brand{margin-bottom:1rem}
+footer .brand .logo{height:84px}
+.foot-about{max-width:34ch;color:#9fb0a2}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+footer h2{font-family:var(--head);color:#fff;font-size:1rem;font-weight:700;line-height:inherit;margin:0 0 .7rem}
+footer a{color:#cfd8cf;text-decoration:none}
+footer a:hover{color:#fff}
+footer ul{list-style:none;margin:0;padding:0;line-height:2}
+.foot-bottom{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.85rem;color:#9fb0a2}
+
+/* pojawianie się przy przewijaniu (klasa .js ustawiana w <head>) */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media print{.js .reveal{opacity:1;transform:none;transition:none}header{position:static}}
+
+@media(max-width:880px){
+  .features,.foot-grid{grid-template-columns:1fr 1fr}
+  .two,.cta-band.split{grid-template-columns:1fr}
+  .menu{display:none}
+  .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem;gap:.4rem;box-shadow:var(--shadow)}
+  .menu.open li{width:100%}
+  .menu.open a{display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .menu.open a.menu-cta{display:inline-block;border-bottom:0;margin-top:.6rem;padding:.55rem 1.2rem}
+  .burger{display:block}
+}
+@media(max-width:520px){
+  .features,.foot-grid{grid-template-columns:1fr}
+  .panel{padding:1.3rem 1.15rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none}
+}

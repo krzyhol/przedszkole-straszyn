@@ -14,104 +14,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 <style>
-
-  :root{
-    --ink:#23332a; --ink-soft:#4d5e53;
-    --leaf:#356a45; --leaf-d:#274e34; --leaf-l:#5b8f68;
-    --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
-    --biedronka:#d24a39; --motyl:#3f7dae; --pszczola:#e0a02b;
-    --biedronka-t:#c54636; --motyl-t:#3b76a4; --pszczola-l:#f2bd52; /* odcienie z kontrastem WCAG AA dla tekstu */
-    --line:rgba(35,51,42,.12);
-    --shadow:0 14px 40px -22px rgba(39,78,52,.55);
-    --r:18px;
-    --head:'Baloo 2',system-ui,sans-serif;
-    --body:'Nunito Sans',system-ui,sans-serif;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.12;margin:0;color:var(--ink)}
-  h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
-  h3{font-size:1.18rem;font-weight:600}
-  p{margin:0 0 1rem}
-  a{color:var(--leaf-d);text-underline-offset:3px}
-  img,svg{max-width:100%;display:block}
-  .wrap{width:min(1120px,92vw);margin-inline:auto}
-  section{padding:clamp(2.8rem,6vw,4.6rem) 0;scroll-margin-top:78px}
-  .eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
-  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:62ch}
-  :focus-visible{outline:3px solid var(--leaf-l);outline-offset:3px;border-radius:6px}
-  .skip{position:absolute;left:-999px;top:10px;z-index:100;background:var(--leaf);color:#fff;padding:.6rem 1rem;border-radius:8px;font-family:var(--head);font-weight:600;text-decoration:none}
-  .skip:focus{left:10px}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:1rem;padding:.72rem 1.35rem;border-radius:100px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,background .18s}
-  .btn-primary{background:var(--leaf);color:#fff;box-shadow:0 10px 24px -12px rgba(53,106,69,.8)}
-  .btn-primary:hover{transform:translateY(-2px);background:var(--leaf-d)}
-  .btn-ghost{background:transparent;color:var(--leaf-d);border-color:var(--line)}
-  .btn-ghost:hover{border-color:var(--leaf);background:#fff}
-
-  header{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;gap:1.5rem;padding:.7rem 0;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
-  .brand .logo{height:48px;width:auto}
-  footer .brand .logo{height:84px}
-  .menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
-  .menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
-  .menu a:hover,.menu a.active{color:var(--leaf)}
-  .menu a.menu-cta{background:var(--leaf);color:#fff;padding:.5rem 1.1rem;border-radius:100px}
-  .menu a.menu-cta:hover,.menu a.menu-cta.active{background:var(--leaf-d);color:#fff}
-  .nav-cta{display:flex;align-items:center;gap:.6rem}
-  .burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
-  .burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0}
-
-  .page-hero{background:var(--sage);padding:clamp(2.4rem,5vw,3.6rem) 0}
-  .crumbs{font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem}
-  .crumbs a{color:var(--ink-soft);text-decoration:none}.crumbs a:hover{color:var(--leaf)}
-  .page-hero h1{font-size:clamp(2rem,4.6vw,3rem);font-weight:700}
-  .page-hero .lead{margin-top:.8rem}
-  .note{background:#fff;border:1px dashed var(--leaf-l);border-radius:14px;padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1.4rem;font-size:.95rem;color:var(--ink-soft)}
-  .note svg{color:var(--leaf);flex:none;margin-top:.15rem}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,2.6rem)}
-  .panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.7rem;box-shadow:var(--shadow)}
-  .panel h2{font-size:1.4rem;margin-bottom:.4rem}
-  .docs{list-style:none;margin:.4rem 0 0;padding:0}
-  .docs li{display:flex;align-items:center;gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--line);scroll-margin-top:90px}
-  .docs li:last-child{border:0}
-  .docs .file{width:40px;height:40px;border-radius:11px;background:var(--sage);color:var(--leaf-d);display:grid;place-items:center;flex:none}
-  .docs b{font-family:var(--head);font-weight:600}
-  .docs small{color:var(--ink-soft);display:block;font-size:.86rem}
-  .docs .dl{margin-left:auto;text-decoration:none;font-family:var(--head);font-weight:600;color:var(--leaf-d);white-space:nowrap}
-  .docs .dl.soon{color:var(--ink-soft);cursor:default;font-size:.88rem}
-  .cta-band{background:var(--leaf-d);color:#fff;border-radius:26px;padding:clamp(2rem,5vw,3rem);box-shadow:var(--shadow);text-align:center}
-  .cta-band h2{color:#fff}
-  .cta-band .lead{color:rgba(255,255,255,.85);margin:.6rem auto 1.4rem}
-
-  footer{background:var(--ink);color:#cfd8cf;padding:3rem 0 2rem;font-size:.95rem}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
-  footer h2{font-family:var(--head);color:#fff;font-size:1rem;font-weight:700;line-height:inherit;margin:0 0 .7rem}
-  footer a{color:#cfd8cf;text-decoration:none}footer a:hover{color:#fff}
-  footer ul{list-style:none;margin:0;padding:0;line-height:2}
-  .foot-bottom{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.85rem;color:#9fb0a2}
-
-  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media print{.js .reveal{opacity:1;transform:none;transition:none}header{position:static}}
-  @media(max-width:880px){
-    .two,.foot-grid{grid-template-columns:1fr}
-    .menu{display:none}
-    .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem;gap:.4rem;box-shadow:var(--shadow)}
-    .menu.open li{width:100%}
-    .menu.open a{display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
-    .menu.open a.menu-cta{display:inline-block;border-bottom:0;margin-top:.6rem;padding:.55rem 1.2rem}
-    .burger{display:block}
-  }
-  @media(max-width:520px){.panel{padding:1.3rem 1.15rem}}
-  @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}*{transition:none!important}}
+  .panel h2{font-size:1.4rem}
 </style>
+<script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-file" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></symbol>
+</svg>
+
 <a class="skip" href="#tresc">Przejdź do treści</a>
+<!-- header: generowany z _partials/header.html — edytuj szablon i uruchom tools/build_layout.py -->
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="Przedszkole św. Jacka w Straszynie — strona główna">
@@ -145,7 +61,6 @@
     <p class="eyebrow">Dla rodziców</p>
     <h1>Dokumenty do pobrania</h1>
     <p class="lead">W jednym miejscu zebraliśmy dokumenty potrzebne przy zapisie dziecka oraz podstawowe informacje o organizacji przedszkola.</p>
-    
   </div>
 </div>
 
@@ -161,17 +76,17 @@
         <h2>Zapis dziecka</h2>
         <ul class="docs">
         <li id="karta">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Karta zgłoszeniowa</b><small>format .doc · do wypełnienia i złożenia w przedszkolu</small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
         <li id="umowa">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Umowa o świadczenie usług przedszkolnych</b><small>format .pdf · wzór</small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
         <li id="upowaznienie">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Upoważnienie do odbioru dziecka</b><small>format .pdf</small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
@@ -182,22 +97,22 @@
         <h2>Informacje o przedszkolu</h2>
         <ul class="docs">
         <li id="podstawa">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Podstawa programowa wychowania przedszkolnego</b><small>format .pdf</small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
         <li id="statut">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Statut przedszkola</b><small>format .pdf</small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
         <li id="plan-dnia">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Ramowy plan dnia</b><small>format .pdf · zobacz też <a href="index.html#oferta">na stronie głównej</a></small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
         <li id="rodo">
-          <span class="file" aria-hidden="true"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h7l3 3v11H5zM12 3v3h3"/></svg></span>
+          <span class="file" aria-hidden="true"><svg width="20" height="20"><use href="#i-file"/></svg></span>
           <span><b>Klauzula informacyjna RODO</b><small>format .pdf · zobacz też <a href="polityka-prywatnosci.html">politykę prywatności</a></small></span>
           <span class="dl soon" title="Plik zostanie podpięty po przeniesieniu z dotychczasowej strony">Wkrótce</span>
         </li>
@@ -207,13 +122,13 @@
   </div>
 </section>
 
-<section style="padding-top:0">
+<section class="flush">
   <div class="wrap">
-    <div class="cta-band reveal">
+    <div class="cta-band centered reveal">
       <h2>Potrzebujesz dokumentu już teraz?</h2>
       <p class="lead">Zadzwoń lub napisz — wyślemy plik mailem albo przygotujemy do odbioru w przedszkolu.</p>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center">
-        <a class="btn btn-primary" style="background:var(--pszczola);color:#3a2a06" href="tel:+48507700418">📞 507 700 418</a>
+      <div class="actions">
+        <a class="btn btn-honey" href="tel:+48507700418">📞 507 700 418</a>
         <a class="btn btn-primary" href="mailto:przedszkole@straszyn.org?subject=Pro%C5%9Bba%20o%20dokumenty">Napisz e-mail</a>
       </div>
     </div>
@@ -221,14 +136,15 @@
 </section>
 </main>
 
+<!-- footer: generowany z _partials/footer.html — edytuj szablon i uruchom tools/build_layout.py -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="index.html" aria-label="Przedszkole św. Jacka w Straszynie — strona główna" style="margin-bottom:1rem">
+        <a class="brand" href="index.html" aria-label="Przedszkole św. Jacka w Straszynie — strona główna">
           <img class="logo" src="brand/logo/svg/logo-poziome-negatyw.svg" alt="" height="84">
         </a>
-        <p style="max-width:34ch;color:#9fb0a2">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
+        <p class="foot-about">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
       </div>
       <div>
         <h2>Przedszkole</h2>
@@ -256,15 +172,5 @@
     </div>
   </div>
 </footer>
-
-<script>
-  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
-  const closeMenu=()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)};
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){closeMenu();burger.focus()}});
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
