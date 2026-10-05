@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
 <title>Praca — Przedszkole św. Jacka w Straszynie</title>
 <meta name="description" content="Dołącz do zespołu Przedszkola św. Jacka w Straszynie. Zżyty zespół, rozwój zawodowy i praca z sensem w kameralnych grupach.">
 <meta name="theme-color" content="#356a45">
@@ -19,6 +20,7 @@
     --leaf:#356a45; --leaf-d:#274e34; --leaf-l:#5b8f68;
     --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
     --biedronka:#d24a39; --motyl:#3f7dae; --pszczola:#e0a02b;
+    --biedronka-t:#c54636; --motyl-t:#3b76a4; --pszczola-l:#f2bd52; /* odcienie z kontrastem WCAG AA dla tekstu */
     --line:rgba(35,51,42,.12);
     --shadow:0 14px 40px -22px rgba(39,78,52,.55);
     --r:18px;
@@ -33,7 +35,7 @@
   h3{font-size:1.18rem;font-weight:600}
   p{margin:0 0 1rem}
   a{color:var(--leaf-d);text-underline-offset:3px}
-  svg{max-width:100%;display:block}
+  img,svg{max-width:100%;display:block}
   .wrap{width:min(1120px,92vw);margin-inline:auto}
   section{padding:clamp(2.8rem,6vw,4.4rem) 0;scroll-margin-top:78px}
   .eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
@@ -110,13 +112,14 @@
 
   footer{background:var(--ink);color:#cfd8cf;padding:3rem 0 2rem;font-size:.95rem}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
-  footer h4{font-family:var(--head);color:#fff;font-size:1rem;margin:0 0 .7rem}
+  footer h2{font-family:var(--head);color:#fff;font-size:1rem;font-weight:700;line-height:inherit;margin:0 0 .7rem}
   footer a{color:#cfd8cf;text-decoration:none}footer a:hover{color:#fff}
   footer ul{list-style:none;margin:0;padding:0;line-height:2}
   .foot-bottom{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.85rem;color:#9fb0a2}
 
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
+  @media print{.js .reveal{opacity:1;transform:none;transition:none}header{position:static}}
   @media(max-width:880px){
     .perks{grid-template-columns:1fr 1fr}
     .two,.steps,.cta-band,.foot-grid{grid-template-columns:1fr}
@@ -127,8 +130,8 @@
     .menu.open a.menu-cta{display:inline-block;border-bottom:0;margin-top:.6rem;padding:.55rem 1.2rem}
     .burger{display:block}
   }
-  @media(max-width:520px){.perks{grid-template-columns:1fr}}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{transition:none!important}}
+  @media(max-width:520px){.perks{grid-template-columns:1fr}.panel{padding:1.3rem 1.15rem}}
+  @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}*{transition:none!important}}
 </style>
 </head>
 <body>
@@ -209,11 +212,11 @@
     <h2 class="reveal" style="margin-bottom:1.2rem">Otwarte rekrutacje</h2>
     <div class="note">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 6h.01"/></svg>
-      <span>Poniższe ogłoszenia to wzór — wystarczy podmienić treść na aktualne wakaty. Gdy nie ma otwartych rekrutacji, zostawcie tylko kartę „aplikacja spontaniczna".</span>
+      <span>Poniższe ogłoszenia to wzór — wystarczy podmienić treść na aktualne wakaty. Gdy nie ma otwartych rekrutacji, zostawcie tylko kartę „aplikacja spontaniczna”.</span>
     </div>
     <div class="jobs">
       <details open>
-        <summary><h3>Nauczyciel wychowania przedszkolnego</h3><div class="tags"><span class="tag">Pełny etat</span><span class="tag">Straszyn</span></div></summary>
+        <summary><h3>Nauczyciel wychowania przedszkolnego</h3><span class="tags"><span class="tag">Pełny etat</span><span class="tag">Straszyn</span></span></summary>
         <div class="body">
           <p>Poszukujemy nauczyciela do pracy z grupą różnowiekową — osoby kreatywnej, ciepłej i otwartej na potrzeby dzieci.</p>
           <p style="font-family:var(--head);font-weight:600;color:var(--ink)">Wymagania:</p>
@@ -232,7 +235,7 @@
         </div>
       </details>
       <details>
-        <summary><h3>Pomoc nauczyciela</h3><div class="tags"><span class="tag">Pełny etat</span><span class="tag">Straszyn</span></div></summary>
+        <summary><h3>Pomoc nauczyciela</h3><span class="tags"><span class="tag">Pełny etat</span><span class="tag">Straszyn</span></span></summary>
         <div class="body">
           <p>Szukamy osoby do wsparcia nauczycieli w codziennej opiece nad dziećmi i organizacji dnia w grupie.</p>
           <p style="font-family:var(--head);font-weight:600;color:var(--ink)">Mile widziane:</p>
@@ -245,7 +248,7 @@
         </div>
       </details>
       <details>
-        <summary><h3>Aplikacja spontaniczna</h3><div class="tags"><span class="tag">Cały rok</span></div></summary>
+        <summary><h3>Aplikacja spontaniczna</h3><span class="tags"><span class="tag">Cały rok</span></span></summary>
         <div class="body">
           <p>Nie ma teraz ogłoszenia dla Ciebie, ale czujesz, że to Twoje miejsce? Napisz do nas — chętnie poznamy Twoje CV i wrócimy, gdy pojawi się odpowiedni wakat.</p>
           <a class="btn btn-primary" href="#aplikuj">Wyślij zgłoszenie</a>
@@ -271,7 +274,7 @@
       <ul class="ticks">
         <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="14" height="11" rx="2"/><path d="M3 7l7 4 7-4"/></svg><span><b>Wyślij CV</b> na adres przedszkole@straszyn.org.</span></li>
         <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 5h12v8H9l-3 3v-3H4z"/></svg><span><b>Porozmawiajmy</b> — zaprosimy Cię na spotkanie i pokażemy przedszkole.</span></li>
-        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-6-4-6-9a6 6 0 0 1 6 0 6 6 0 0 1 6 0c0 5-6 9-6 9z"/></svg><span><b>Dołącz do zespołu</b> i zacznij pracę, która ma sens.</span></li>
+        <li><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 17s-6-3.8-6-8.4A3.4 3.4 0 0 1 10 6.4a3.4 3.4 0 0 1 6 2.2c0 4.6-6 8.4-6 8.4z"/></svg><span><b>Dołącz do zespołu</b> i zacznij pracę, która ma sens.</span></li>
       </ul>
       <p style="margin:1rem 0 0;font-size:.88rem;color:var(--ink-soft)">Prosimy o dopisanie w CV zgody na przetwarzanie danych osobowych na potrzeby rekrutacji.</p>
     </div>
@@ -282,7 +285,7 @@
   <div class="wrap">
     <div class="cta-band reveal">
       <div>
-        <p class="eyebrow" style="color:var(--pszczola)">Aplikuj</p>
+        <p class="eyebrow" style="color:var(--pszczola-l)">Aplikuj</p>
         <h2>Wyślij nam swoje CV</h2>
         <p class="lead">Napisz do nas albo zadzwoń — chętnie poznamy Cię bliżej. Każde zgłoszenie czytamy uważnie.</p>
         <a class="btn btn-primary" style="background:var(--pszczola);color:#3a2a06" href="mailto:przedszkole@straszyn.org?subject=Aplikacja%20-%20praca%20w%20przedszkolu">Napisz e-mail</a>
@@ -309,7 +312,7 @@
         <p style="max-width:34ch;color:#9fb0a2">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
       </div>
       <div>
-        <h4>Przedszkole</h4>
+        <h2>Przedszkole</h2>
         <ul>
           <li><a href="index.html#o-nas">O nas</a></li>
           <li><a href="index.html#grupy">Nasze grupy</a></li>
@@ -318,7 +321,7 @@
         </ul>
       </div>
       <div>
-        <h4>Dla rodziców</h4>
+        <h2>Dla rodziców</h2>
         <ul>
           <li><a href="rekrutacja.html">Rekrutacja</a></li>
           <li><a href="dokumenty.html">Dokumenty do pobrania</a></li>
