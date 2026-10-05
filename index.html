@@ -14,60 +14,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 <style>
-  :root{
-    --ink:#23332a; --ink-soft:#4d5e53;
-    --leaf:#356a45; --leaf-d:#274e34; --leaf-l:#5b8f68;
-    --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
-    --biedronka:#d24a39; --motyl:#3f7dae; --pszczola:#e0a02b;
-    --biedronka-t:#c54636; --motyl-t:#3b76a4; --pszczola-l:#f2bd52; /* odcienie z kontrastem WCAG AA dla tekstu */
-    --line:rgba(35,51,42,.12);
-    --shadow:0 14px 40px -22px rgba(39,78,52,.55);
-    --r:18px;
-    --head:'Baloo 2',system-ui,sans-serif;
-    --body:'Nunito Sans',system-ui,sans-serif;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.12;margin:0;color:var(--ink)}
+  section{padding:clamp(3.2rem,7vw,5.5rem) 0}
   h2{font-size:clamp(1.7rem,3.6vw,2.5rem)}
-  h3{font-size:1.18rem;font-weight:600}
-  p{margin:0 0 1rem}
-  a{color:var(--leaf-d);text-underline-offset:3px}
-  img,svg{max-width:100%;display:block}
-  .wrap{width:min(1120px,92vw);margin-inline:auto}
-  section{padding:clamp(3.2rem,7vw,5.5rem) 0;scroll-margin-top:78px}
-  .eyebrow{font-family:var(--head);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 .6rem}
-  .lead{font-size:1.12rem;color:var(--ink-soft);max-width:60ch}
-  :focus-visible{outline:3px solid var(--leaf-l);outline-offset:3px;border-radius:6px}
-  .skip{position:absolute;left:-999px;top:10px;z-index:100;background:var(--leaf);color:#fff;padding:.6rem 1rem;border-radius:8px;font-family:var(--head);font-weight:600;text-decoration:none}
-  .skip:focus{left:10px}
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
-  /* buttons */
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:1rem;padding:.72rem 1.35rem;border-radius:100px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s}
-  .btn-primary{background:var(--leaf);color:#fff;box-shadow:0 10px 24px -12px rgba(53,106,69,.8)}
-  .btn-primary:hover{transform:translateY(-2px);background:var(--leaf-d)}
-  .btn-ghost{background:transparent;color:var(--leaf-d);border-color:var(--line)}
-  .btn-ghost:hover{border-color:var(--leaf);background:#fff}
-  .btn-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
-  .btn-light:hover{background:rgba(255,255,255,.12);border-color:#fff}
-
-  /* header */
-  header{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;gap:1.5rem;padding:.7rem 0;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
-  .brand .logo{height:48px;width:auto}
-  footer .brand .logo{height:84px}
-  .menu{display:flex;align-items:center;gap:1.45rem;list-style:none;margin:0;padding:0}
-  .menu a{font-family:var(--head);font-weight:500;font-size:1rem;color:var(--ink);text-decoration:none}
-  .menu a:hover{color:var(--leaf)}
-  .menu a.menu-cta{background:var(--leaf);color:#fff;padding:.5rem 1.1rem;border-radius:100px}
-  .menu a.menu-cta:hover{background:var(--leaf-d);color:#fff}
-  .nav-cta{display:flex;align-items:center;gap:.6rem}
-  .burger{display:none;background:none;border:0;padding:.4rem;cursor:pointer}
-  .burger span{display:block;width:24px;height:2.4px;background:var(--ink);border-radius:2px;margin:5px 0;transition:.25s}
+  .lead{max-width:60ch}
 
   /* hero */
   .hero{padding-top:clamp(2.2rem,5vw,3.6rem)}
@@ -79,45 +30,39 @@
   .trust div{display:flex;flex-direction:column}
   .trust b{font-family:var(--head);font-size:1.45rem;color:var(--leaf-d);line-height:1}
   .trust small{font-size:.82rem;color:var(--ink-soft)}
-  .hero-art{position:relative}
   .hero-art svg{width:100%;height:auto;filter:drop-shadow(var(--shadow))}
 
-  /* news strip */
+  /* pasek aktualności */
   .news{background:var(--leaf);color:#fff}
   .news .wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:center;text-align:center;padding:.9rem 0}
-  .news .tag{font-family:var(--head);font-weight:600;background:rgba(0,0,0,.2);padding:.2rem .7rem;border-radius:100px;font-size:.82rem;letter-spacing:.06em}
   .news p{margin:0}
   .news a{color:#fff;font-weight:700}
+  .news .tag{font-family:var(--head);font-weight:600;background:rgba(0,0,0,.2);padding:.2rem .7rem;border-radius:100px;font-size:.82rem;letter-spacing:.06em;text-decoration:none}
 
-  /* feature cards */
-  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
-  .feat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.5rem 1.35rem;box-shadow:var(--shadow)}
-  .feat .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--sage);color:var(--leaf-d);margin-bottom:.9rem}
-  .feat h3{margin-bottom:.35rem}
-  .feat p{margin:0;font-size:.96rem;color:var(--ink-soft)}
-
-  /* about */
+  /* o nas */
   .about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
   .facts{background:var(--sage);border-radius:var(--r);padding:1.6rem 1.5rem}
-  .facts li{list-style:none;display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed var(--sage-d);font-size:.98rem}
+  .facts h3{margin-bottom:.8rem}
   .facts ul{margin:0;padding:0}
+  .facts li{list-style:none;display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed var(--sage-d);font-size:.98rem}
   .facts li:last-child{border:0}
   .facts .dot{margin-top:.45rem;width:9px;height:9px;border-radius:50%;flex:none;background:var(--leaf)}
 
-  /* groups */
-  #grupy{background:linear-gradient(180deg,#fff, #fff)}
+  /* grupy */
+  #grupy{background:#fff}
   .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
   .group{border-radius:var(--r);padding:1.6rem 1.4rem;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow)}
   .group h3{color:#fff;font-size:1.45rem;font-weight:700}
   .group p{font-size:.96rem;opacity:.95;margin:.3rem 0 1.1rem}
   .group .crit{position:absolute;right:-8px;top:-8px;width:96px;height:96px;opacity:.92}
   .group .tel{display:inline-flex;align-items:center;gap:.45rem;background:rgba(0,0,0,.16);padding:.4rem .8rem;border-radius:100px;font-family:var(--head);font-weight:600;text-decoration:none;color:#fff}
-  .g-bied{background:var(--biedronka-t)} .g-mot{background:var(--motyl-t)} .g-psz{background:var(--pszczola)}
-  .g-psz h3,.g-psz p,.g-psz .tel{color:#3a2a06}
-  .g-psz .tel{background:rgba(255,255,255,.35)}
+  .group.c-psz h3,.group.c-psz p,.group.c-psz .tel{color:var(--honey-ink)}
+  .group.c-psz .tel{background:rgba(255,255,255,.35)}
 
-  /* offer */
+  /* oferta */
   .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
+  .offer-grid h3{margin-bottom:1rem}
+  .offer-grid .label{margin:1.2rem 0 .3rem}
   .chips{display:flex;flex-wrap:wrap;gap:.55rem;margin:.4rem 0 1.4rem}
   .chip{font-family:var(--head);font-weight:500;font-size:.92rem;background:#fff;border:1px solid var(--line);padding:.45rem .85rem;border-radius:100px}
   .chip.hl{background:var(--leaf);color:#fff;border-color:var(--leaf)}
@@ -127,7 +72,7 @@
   .day time{font-family:var(--head);font-weight:600;color:var(--leaf-d)}
   .day small{color:var(--ink-soft)}
 
-  /* pricing */
+  /* opłaty */
   #oplaty{background:var(--sage)}
   .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.8rem 0 1.2rem}
   .price{background:#fff;border-radius:var(--r);padding:1.6rem 1.4rem;border:1px solid var(--line)}
@@ -138,56 +83,38 @@
   .price-note{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.95rem;color:var(--ink-soft)}
   .price-note b{color:var(--ink)}
 
-  /* recruitment */
+  /* rekrutacja */
   .rekrut{background:var(--leaf-d);color:#fff;border-radius:26px;padding:clamp(2rem,5vw,3.4rem);box-shadow:var(--shadow)}
   .rekrut h2{color:#fff}
+  .rekrut .eyebrow{color:var(--pszczola-l)}
   .rekrut .lead{color:rgba(255,255,255,.85)}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:2rem 0}
   .step{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:1.3rem}
   .step b{font-family:var(--head);display:block;font-size:1.05rem;margin:.4rem 0 .25rem}
   .step .n{width:34px;height:34px;border-radius:50%;background:var(--pszczola);color:#4a3406;display:grid;place-items:center;font-family:var(--head);font-weight:700}
   .step p{margin:0;font-size:.94rem;color:rgba(255,255,255,.82)}
+  .step a{color:#fff}
   .rekrut-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
   .rekrut-cta .phone{font-family:var(--head);font-weight:700;font-size:1.5rem;color:#fff;text-decoration:none}
   .rekrut-cta small{color:rgba(255,255,255,.75)}
+  .rekrut-cta .actions{margin-left:auto;gap:.6rem}
 
-  /* contact */
+  /* kontakt */
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
-  .cinfo li{list-style:none;display:flex;gap:.85rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid var(--line)}
   .cinfo ul{margin:0;padding:0}
+  .cinfo li{list-style:none;display:flex;gap:.85rem;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid var(--line)}
   .cinfo .ic{color:var(--leaf);margin-top:.15rem;flex:none}
   .cinfo b{font-family:var(--head);font-weight:600}
-  .cinfo a{color:var(--ink);text-decoration:none}.cinfo a:hover{color:var(--leaf)}
+  .cinfo a{color:var(--ink);text-decoration:none}
+  .cinfo a:hover{color:var(--leaf)}
   .map-card{background:var(--sage);border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
   .map-card .pin{font-family:var(--head);font-weight:700;font-size:1.2rem}
-
-  /* footer */
-  footer{background:var(--ink);color:#cfd8cf;padding:3rem 0 2rem;font-size:.95rem}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
-  footer h2{font-family:var(--head);color:#fff;font-size:1rem;font-weight:700;line-height:inherit;margin:0 0 .7rem}
-  footer a{color:#cfd8cf;text-decoration:none}footer a:hover{color:#fff}
-  footer ul{list-style:none;margin:0;padding:0;line-height:2}
-  .foot-bottom{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.85rem;color:#9fb0a2}
-
-  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media print{.js .reveal{opacity:1;transform:none;transition:none}header{position:static}}
+  .map-card p{margin:.3rem 0 0;color:var(--ink-soft)}
 
   @media(max-width:880px){
-    .features{grid-template-columns:1fr 1fr}
-    .hero-grid,.about-grid,.offer-grid,.contact-grid{grid-template-columns:1fr}
+    .hero-grid,.about-grid,.offer-grid,.contact-grid,.groups,.price-grid,.steps{grid-template-columns:1fr}
     .hero-art{order:-1;max-width:460px;margin-inline:auto}
-    .groups,.price-grid,.steps{grid-template-columns:1fr}
-    .foot-grid{grid-template-columns:1fr 1fr}
-    .menu{display:none}
-    .menu.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:1rem 6vw 1.4rem;gap:.4rem;box-shadow:var(--shadow)}
-    .menu.open li{width:100%}
-    .menu.open a{display:block;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
-    .menu.open a.menu-cta{display:inline-block;border-bottom:0;margin-top:.6rem;padding:.55rem 1.2rem}
-    .burger{display:block}
   }
-  @media(max-width:520px){.features{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
   @media(prefers-reduced-motion:no-preference){
     .float1{animation:fl 6s ease-in-out infinite}
     .float2{animation:fl 7.5s ease-in-out infinite .8s}
@@ -195,6 +122,7 @@
     @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
   }
 </style>
+<script src="assets/js/main.js" defer></script>
 </head>
 <body>
 
@@ -232,7 +160,7 @@
       <p class="eyebrow">Przedszkole niepubliczne przy parafii · od 2003</p>
       <h1>Miejsce, w którym dzieci rosną <em>wśród zieleni i życzliwości</em></h1>
       <p class="lead">Kameralne przedszkole w sąsiedztwie kościoła i lasu w Straszynie. Grupy różnowiekowe, codzienny angielski i opieka specjalistów — w rodzinnej atmosferze, którą budujemy od ponad dwudziestu lat.</p>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+      <div class="actions">
         <a class="btn btn-primary" href="#rekrutacja">Zapisy 2026/2027</a>
         <a class="btn btn-ghost" href="#o-nas">Poznaj przedszkole</a>
       </div>
@@ -308,7 +236,7 @@
 <!-- ===== NEWS STRIP ===== -->
 <div class="news">
   <div class="wrap">
-    <a class="tag" href="aktualnosci.html" style="text-decoration:none">Aktualności</a>
+    <a class="tag" href="aktualnosci.html">Aktualności</a>
     <p>Trwają zapisy na rok szkolny 2026/2027.</p>
     <a href="#rekrutacja">Sprawdź, jak zapisać dziecko →</a>
   </div>
@@ -354,7 +282,7 @@
       <p>Naszą kadrę tworzą nauczyciele z wyższym wykształceniem pedagogicznym, którzy stale podnoszą kwalifikacje. Opiekę nad każdą grupą sprawują zawsze dwie osoby. Placówką kieruje ks. Krzysztof Konkol.</p>
     </div>
     <div class="facts reveal">
-      <h3 style="margin-bottom:.8rem">W skrócie</h3>
+      <h3>W skrócie</h3>
       <ul>
         <li><span class="dot"></span><span>Działamy nieprzerwanie <b>od 2003 roku</b></span></li>
         <li><span class="dot"></span><span>Trzy grupy: Biedronki, Motylki, Pszczółki</span></li>
@@ -374,19 +302,19 @@
     <h2 class="reveal">Biedronki, Motylki i Pszczółki</h2>
     <p class="lead reveal">Trzy grupy różnowiekowe, każda z własnym opiekunem i bezpośrednim numerem telefonu dla rodziców.</p>
     <div class="groups">
-      <div class="group g-bied reveal">
+      <div class="group c-bied reveal">
         <svg class="crit" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="52" rx="30" ry="34" fill="#b23b2c"/><path d="M50 18v68" stroke="#2a0f0b" stroke-width="4"/><circle cx="50" cy="24" r="11" fill="#2a0f0b"/><circle cx="38" cy="46" r="4" fill="#2a0f0b"/><circle cx="62" cy="50" r="4" fill="#2a0f0b"/><circle cx="40" cy="66" r="4" fill="#2a0f0b"/><circle cx="60" cy="68" r="4" fill="#2a0f0b"/></svg>
         <h3>Biedronki</h3>
         <p>Grupa różnowiekowa</p>
         <a class="tel" href="tel:+48729054578">📞 729 054 578</a>
       </div>
-      <div class="group g-mot reveal">
+      <div class="group c-mot reveal">
         <svg class="crit" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 30C28 8 18 44 50 46C18 70 30 92 50 56" fill="#2f6796"/><path d="M50 30C72 8 82 44 50 46C82 70 70 92 50 56" fill="#4a86b8"/><rect x="47" y="22" width="6" height="44" rx="3" fill="#13202b"/></svg>
         <h3>Motylki</h3>
         <p>Grupa różnowiekowa</p>
         <a class="tel" href="tel:+48729054577">📞 729 054 577</a>
       </div>
-      <div class="group g-psz reveal">
+      <div class="group c-psz reveal">
         <svg class="crit" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="54" rx="28" ry="22" fill="#c98a1f"/><path d="M36 36v36M50 33v42M64 36v36" stroke="#3a2a06" stroke-width="6"/><ellipse cx="34" cy="34" rx="18" ry="11" fill="#fff" opacity=".85"/><ellipse cx="66" cy="34" rx="18" ry="11" fill="#fff" opacity=".85"/></svg>
         <h3>Pszczółki</h3>
         <p>Grupa różnowiekowa</p>
@@ -404,7 +332,7 @@
       <div class="reveal">
         <h2>Bogaty dzień, spokojne tempo</h2>
         <p class="lead">Zajęcia rozwijające mowę, ruch, twórczość i samodzielność — prowadzone z troską o indywidualne tempo każdego dziecka.</p>
-        <p style="font-family:var(--head);font-weight:600;margin:1.2rem 0 .3rem">W cenie pobytu</p>
+        <p class="label">W cenie pobytu</p>
         <div class="chips">
           <span class="chip hl">Angielski codziennie</span>
           <span class="chip">Rytmika 2×/tydz.</span>
@@ -413,16 +341,16 @@
           <span class="chip">Konsultacje logopedy</span>
           <span class="chip">Gimnastyka</span>
         </div>
-        <p style="font-family:var(--head);font-weight:600;margin:.4rem 0 .3rem">Zajęcia dodatkowe (płatne)</p>
+        <p class="label">Zajęcia dodatkowe (płatne)</p>
         <div class="chips">
           <span class="chip">Taniec</span>
           <span class="chip">Plastyka</span>
           <span class="chip">Warsztaty ceramiczne</span>
         </div>
-        <p style="margin-top:1rem">A do tego pełen kalendarz uroczystości — od Mikołajek i spotkań wigilijnych, przez Dzień Babci i Dziadka, po bale, Dzień Mamy i Taty oraz wspólne pieczenie i malowanie pisanek. W sierpniu organizujemy spotkania adaptacyjne dla nowych dzieci i rodziców.</p>
+        <p>A do tego pełen kalendarz uroczystości — od Mikołajek i spotkań wigilijnych, przez Dzień Babci i Dziadka, po bale, Dzień Mamy i Taty oraz wspólne pieczenie i malowanie pisanek. W sierpniu organizujemy spotkania adaptacyjne dla nowych dzieci i rodziców.</p>
       </div>
       <div class="reveal">
-        <h3 style="margin-bottom:1rem">Ramowy plan dnia</h3>
+        <h3>Ramowy plan dnia</h3>
         <ul class="day">
           <li><time datetime="06:00">6:00</time><div><b>Schodzenie się dzieci</b><br><small>Zabawy swobodne, ćwiczenia poranne</small></div></li>
           <li><time datetime="07:45">7:45</time><div><b>Śniadanie</b><br><small>Czynności samoobsługowe i higieniczne</small></div></li>
@@ -461,19 +389,19 @@
 <section id="rekrutacja">
   <div class="wrap">
     <div class="rekrut reveal">
-      <p class="eyebrow" style="color:var(--pszczola-l)">Rekrutacja</p>
+      <p class="eyebrow">Rekrutacja</p>
       <h2>Zapisy na rok 2026/2027 są otwarte</h2>
       <p class="lead">Zapraszamy dzieci w wieku 2,5–6 lat. Zapisy prowadzimy telefonicznie — chętnie też pokażemy Państwu przedszkole na żywo.</p>
       <div class="steps">
         <div class="step"><div class="n">1</div><b>Zadzwoń</b><p>Skontaktuj się z nami w godzinach 10:00–12:00, by poznać wolne miejsca.</p></div>
         <div class="step"><div class="n">2</div><b>Odwiedź nas</b><p>Umów się na wizytę — zobacz sale, plac zabaw i poznaj kadrę.</p></div>
-        <div class="step"><div class="n">3</div><b>Zapisz dziecko</b><p>Wypełnij <a href="dokumenty.html#karta" style="color:#fff">kartę zgłoszeniową</a>, a my zadbamy o spokojny start w sierpniu.</p></div>
+        <div class="step"><div class="n">3</div><b>Zapisz dziecko</b><p>Wypełnij <a href="dokumenty.html#karta">kartę zgłoszeniową</a>, a my zadbamy o spokojny start w sierpniu.</p></div>
       </div>
       <div class="rekrut-cta">
         <a class="phone" href="tel:+48507700418">📞 507 700 418</a>
         <small>czynne w godz. 10:00–12:00</small>
-        <div style="margin-left:auto;display:flex;gap:.6rem;flex-wrap:wrap">
-          <a class="btn btn-primary" style="background:var(--pszczola);color:#3a2a06" href="rekrutacja.html">Szczegóły rekrutacji</a>
+        <div class="actions">
+          <a class="btn btn-honey" href="rekrutacja.html">Szczegóły rekrutacji</a>
           <a class="btn btn-light" href="mailto:przedszkole@straszyn.org">Napisz do nas</a>
         </div>
       </div>
@@ -485,7 +413,7 @@
 <section id="kontakt">
   <div class="wrap">
     <p class="eyebrow">Kontakt</p>
-    <h2 class="reveal" style="margin-bottom:1.6rem">Zapraszamy do nas</h2>
+    <h2 class="reveal section-title">Zapraszamy do nas</h2>
     <div class="contact-grid">
       <div class="cinfo reveal">
         <ul>
@@ -498,7 +426,7 @@
       <div class="map-card reveal">
         <div>
           <div class="pin">📍 Przedszkole św. Jacka</div>
-          <p style="margin:.3rem 0 0;color:var(--ink-soft)">ul. Poprzeczna 24, Straszyn<br>tuż przy parafii św. Jacka Odrowąża, w otoczeniu lasu.</p>
+          <p>ul. Poprzeczna 24, Straszyn<br>tuż przy parafii św. Jacka Odrowąża, w otoczeniu lasu.</p>
         </div>
         <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Przedszkole+%C5%9Bw.+Jacka+Poprzeczna+24+Straszyn" target="_blank" rel="noopener">Zobacz na mapie Google</a>
       </div>
@@ -512,10 +440,10 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="#start" aria-label="Przedszkole św. Jacka w Straszynie — strona główna" style="margin-bottom:1rem">
+        <a class="brand" href="#start" aria-label="Przedszkole św. Jacka w Straszynie — strona główna">
           <img class="logo" src="brand/logo/svg/logo-poziome-negatyw.svg" alt="" height="84">
         </a>
-        <p style="max-width:34ch;color:#9fb0a2">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
+        <p class="foot-about">Niepubliczne Przedszkole przy Parafii Rzymskokatolickiej pw. św. Jacka Odrowąża w Straszynie.</p>
       </div>
       <div>
         <h2>Przedszkole</h2>
@@ -543,15 +471,5 @@
     </div>
   </div>
 </footer>
-
-<script>
-  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
-  const closeMenu=()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)};
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){closeMenu();burger.focus()}});
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
