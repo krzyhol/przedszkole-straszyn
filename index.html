@@ -30,7 +30,15 @@
   .trust div{display:flex;flex-direction:column}
   .trust b{font-family:var(--head);font-size:1.45rem;color:var(--leaf-d);line-height:1}
   .trust small{font-size:.82rem;color:var(--ink-soft)}
-  .hero-art svg{width:100%;height:auto;filter:drop-shadow(var(--shadow))}
+  .hero-art{position:relative;margin:0}
+  .hero-photo{margin:0;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5;background:var(--sage)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-art .critter{position:absolute;width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow)}
+  .hero-art .critter svg{width:40px;height:40px}
+  .hero-art .cr-mot{top:9%;left:-22px}
+  .hero-art .cr-psz{top:34%;right:-20px}
+  .hero-art .cr-bied{bottom:17%;left:-18px}
+  .hero-art .place{position:absolute;right:16px;bottom:16px;background:rgba(251,248,241,.94);border-radius:100px;padding:.45rem .95rem;font-family:var(--head);font-weight:600;font-size:.92rem;color:var(--leaf-d);box-shadow:var(--shadow)}
 
   /* pasek aktualności */
   .news{background:var(--leaf);color:#fff}
@@ -47,6 +55,10 @@
   .facts li{list-style:none;display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed var(--sage-d);font-size:.98rem}
   .facts li:last-child{border:0}
   .facts .dot{margin-top:.45rem;width:9px;height:9px;border-radius:50%;flex:none;background:var(--leaf)}
+  .photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:clamp(2rem,5vw,3rem)}
+  .photo-duo figure{margin:0;position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:3/2;background:var(--sage)}
+  .photo-duo img{width:100%;height:100%;object-fit:cover}
+  .photo-duo figcaption{position:absolute;left:12px;bottom:12px;right:12px;width:fit-content;background:rgba(251,248,241,.94);border-radius:100px;padding:.35rem .9rem;font-family:var(--head);font-weight:600;font-size:.92rem;color:var(--ink)}
 
   /* grupy */
   #grupy{background:#fff}
@@ -107,13 +119,26 @@
   .cinfo b{font-family:var(--head);font-weight:600}
   .cinfo a{color:var(--ink);text-decoration:none}
   .cinfo a:hover{color:var(--leaf)}
-  .map-card{background:var(--sage);border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
+  .map-card{background:var(--sage);border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;gap:1.2rem;min-height:260px}
+  .map-card figure{margin:-1.6rem -1.6rem 0;aspect-ratio:3/2;overflow:hidden;border-radius:var(--r) var(--r) 0 0;background:var(--sage-d)}
+  .map-card figure img{width:100%;height:100%;object-fit:cover}
+  .map-card .btn{align-self:flex-start}
   .map-card .pin{font-family:var(--head);font-weight:700;font-size:1.2rem}
   .map-card p{margin:.3rem 0 0;color:var(--ink-soft)}
 
   @media(max-width:880px){
     .hero-grid,.about-grid,.offer-grid,.contact-grid,.groups,.price-grid,.steps{grid-template-columns:1fr}
-    .hero-art{order:-1;max-width:460px;margin-inline:auto}
+    .hero-art{order:-1;width:100%;max-width:460px;margin-inline:auto}
+    .hero-photo{aspect-ratio:6/5}
+    .hero-photo img{object-position:50% 0}
+    .hero-art .cr-mot{left:-10px}
+    .hero-art .cr-psz{right:-10px}
+    .hero-art .cr-bied{left:-10px}
+  }
+  @media(max-width:600px){
+    .photo-duo{grid-template-columns:1fr}
+    .hero-art .critter{width:52px;height:52px}
+    .hero-art .critter svg{width:32px;height:32px}
   }
   @media(prefers-reduced-motion:no-preference){
     .float1{animation:fl 6s ease-in-out infinite}
@@ -172,64 +197,13 @@
       </div>
     </div>
     <div class="hero-art">
-      <svg viewBox="0 0 560 470" role="img" aria-labelledby="heroTitle">
-        <title id="heroTitle">Ilustracja przedszkola w sadzie obok kościoła, z huśtawką, bawiącymi się dziećmi i owadami symbolizującymi grupy</title>
-        <rect x="0" y="0" width="560" height="470" rx="28" fill="#ebf1e4"/>
-        <circle cx="92" cy="86" r="34" fill="#f4d68a"/>
-        <!-- trees back -->
-        <g fill="#5b8f68"><circle cx="470" cy="150" r="58"/><circle cx="430" cy="180" r="42"/><circle cx="510" cy="185" r="40"/></g>
-        <rect x="462" y="195" width="14" height="70" rx="6" fill="#6b5236"/>
-        <g fill="#4f8159"><circle cx="70" cy="220" r="40"/><circle cx="40" cy="245" r="28"/><circle cx="100" cy="245" r="28"/></g>
-        <rect x="63" y="255" width="12" height="60" rx="6" fill="#6b5236"/>
-        <!-- ground -->
-        <path d="M0 320 Q280 290 560 320 L560 470 L0 470 Z" fill="#7bbf6f"/>
-        <path d="M0 360 Q280 335 560 360 L560 470 L0 470 Z" fill="#6aae5f"/>
-        <!-- building + church -->
-        <g>
-          <rect x="190" y="214" width="180" height="118" rx="6" fill="#fdfcf8"/>
-          <path d="M180 216 L280 168 L380 216 Z" fill="#d24a39"/>
-          <rect x="248" y="120" width="26" height="60" rx="4" fill="#fdfcf8"/>
-          <path d="M243 122 L261 100 L279 122 Z" fill="#d24a39"/>
-          <rect x="259" y="84" width="3.4" height="18" rx="1.7" fill="#e0a02b"/>
-          <rect x="254" y="90" width="13" height="3.4" rx="1.7" fill="#e0a02b"/>
-          <rect x="210" y="244" width="30" height="34" rx="4" fill="#bcd8ec"/>
-          <rect x="320" y="244" width="30" height="34" rx="4" fill="#bcd8ec"/>
-          <rect x="263" y="276" width="34" height="56" rx="4" fill="#8a6b46"/>
-          <circle cx="289" cy="306" r="2.4" fill="#e0a02b"/>
-        </g>
-        <!-- swing (playground) -->
-        <g stroke="#3f7dae" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M88 414 L104 352 L120 414"/>
-          <path d="M152 414 L168 352 L184 414"/>
-          <path d="M99 352 L173 352"/>
-        </g>
-        <g stroke="#23332a" stroke-width="3.4" fill="none" stroke-linecap="round">
-          <path d="M124 354 L124 394"/>
-          <path d="M148 354 L148 394"/>
-        </g>
-        <rect x="116" y="392" width="40" height="8" rx="4" fill="#e0a02b"/>
-        <!-- kids -->
-        <g>
-          <circle cx="300" cy="392" r="13" fill="#f0c9a0"/><rect x="289" y="404" width="22" height="30" rx="9" fill="#d24a39"/>
-          <circle cx="338" cy="398" r="12" fill="#f0c9a0"/><rect x="328" y="409" width="20" height="28" rx="9" fill="#3f7dae"/>
-          <circle cx="222" cy="400" r="12" fill="#f0c9a0"/><rect x="212" y="411" width="20" height="28" rx="9" fill="#e0a02b"/>
-        </g>
-        <!-- critters -->
-        <g transform="translate(430 300)"><g class="float1">
-          <ellipse cx="0" cy="0" rx="13" ry="15" fill="#d24a39"/><path d="M0 -14 L0 14" stroke="#3a1410" stroke-width="2"/>
-          <circle cx="0" cy="-11" r="5" fill="#3a1410"/><circle cx="-5" cy="2" r="2" fill="#3a1410"/><circle cx="5" cy="5" r="2" fill="#3a1410"/><circle cx="-4" cy="9" r="2" fill="#3a1410"/>
-        </g></g>
-        <g transform="translate(150 150)"><g class="float2">
-          <path d="M0 0 C-22 -20 -26 6 0 4 C-26 26 -20 30 0 8" fill="#3f7dae"/>
-          <path d="M0 0 C22 -20 26 6 0 4 C26 26 20 30 0 8" fill="#5b97c8"/>
-          <rect x="-1.6" y="-6" width="3.2" height="22" rx="1.6" fill="#23332a"/>
-        </g></g>
-        <g transform="translate(372 120)"><g class="float3">
-          <ellipse cx="0" cy="0" rx="12" ry="9" fill="#e0a02b"/>
-          <path d="M-6 -8 L-6 8 M0 -9 L0 9 M6 -8 L6 8" stroke="#3a2a06" stroke-width="2.4"/>
-          <ellipse cx="-7" cy="-9" rx="8" ry="5" fill="#fff" opacity=".85"/><ellipse cx="7" cy="-9" rx="8" ry="5" fill="#fff" opacity=".85"/>
-        </g></g>
-      </svg>
+      <figure class="hero-photo">
+        <img src="assets/img/kosciol-wieza-640.webp" srcset="assets/img/kosciol-wieza-640.webp 640w, assets/img/kosciol-wieza-1080.webp 1080w" sizes="(max-width: 880px) min(460px, 92vw), 540px" width="640" height="800" fetchpriority="high" alt="Biały budynek przedszkola z wieżą kościoła św. Jacka, otoczony zielenią drzew">
+      </figure>
+      <span class="critter cr-mot float2" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 30C28 8 18 44 50 46C18 70 30 92 50 56" fill="#2f6796"/><path d="M50 30C72 8 82 44 50 46C82 70 70 92 50 56" fill="#4a86b8"/><rect x="47" y="22" width="6" height="44" rx="3" fill="#13202b"/></svg></span>
+      <span class="critter cr-psz float3" aria-hidden="true"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="54" rx="28" ry="22" fill="#c98a1f"/><path d="M36 36v36M50 33v42M64 36v36" stroke="#3a2a06" stroke-width="6"/><ellipse cx="34" cy="34" rx="18" ry="11" fill="#fff" opacity=".85" stroke="#e7dcc4" stroke-width="2"/><ellipse cx="66" cy="34" rx="18" ry="11" fill="#fff" opacity=".85" stroke="#e7dcc4" stroke-width="2"/></svg></span>
+      <span class="critter cr-bied float1" aria-hidden="true"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="52" rx="30" ry="34" fill="#b23b2c"/><path d="M50 18v68" stroke="#2a0f0b" stroke-width="4"/><circle cx="50" cy="24" r="11" fill="#2a0f0b"/><circle cx="38" cy="46" r="4" fill="#2a0f0b"/><circle cx="62" cy="50" r="4" fill="#2a0f0b"/><circle cx="40" cy="66" r="4" fill="#2a0f0b"/><circle cx="60" cy="68" r="4" fill="#2a0f0b"/></svg></span>
+      <span class="place">📍 Straszyn, przy parafii św. Jacka</span>
     </div>
   </div>
 </section>
@@ -293,6 +267,16 @@
         <li><span class="dot"></span><span>Trzy posiłki dziennie przygotowywane na miejscu</span></li>
       </ul>
     </div>
+  </div>
+  <div class="wrap photo-duo">
+    <figure class="reveal">
+      <img src="assets/img/dziedziniec-600.webp" srcset="assets/img/dziedziniec-600.webp 600w, assets/img/dziedziniec-953.webp 953w" sizes="(max-width: 600px) 92vw, 550px" width="600" height="400" loading="lazy" alt="Brukowany dziedziniec ze studnią i łukowym wejściem pod czerwonym daszkiem, ozdobionym kwiatami">
+      <figcaption>Dziedziniec przy kościele</figcaption>
+    </figure>
+    <figure class="reveal">
+      <img src="assets/img/plac-zabaw-600.webp" srcset="assets/img/plac-zabaw-600.webp 600w, assets/img/plac-zabaw-1200.webp 1200w" sizes="(max-width: 600px) 92vw, 550px" width="600" height="400" loading="lazy" alt="Przedszkolny plac zabaw z drewnianym zestawem i żółtą zjeżdżalnią, w tle budynek przedszkola wśród drzew">
+      <figcaption>Nasz plac zabaw</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -425,6 +409,9 @@
         </ul>
       </div>
       <div class="map-card reveal">
+        <figure>
+          <img src="assets/img/budynek-800.webp" srcset="assets/img/budynek-800.webp 800w, assets/img/budynek-1400.webp 1400w" sizes="(max-width: 880px) 92vw, 540px" width="800" height="532" loading="lazy" alt="Budynek przedszkola i kościół św. Jacka na skraju lasu, widziane od strony ogrodu">
+        </figure>
         <div>
           <div class="pin">📍 Przedszkole św. Jacka</div>
           <p>ul. Poprzeczna 24, Straszyn<br>tuż przy parafii św. Jacka Odrowąża, w otoczeniu lasu.</p>
