@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Księga znaku · Przedszkole św. Jacka</title>
+<meta name="description" content="Logo Przedszkola św. Jacka w Straszynie: warianty, kolory, typografia, zasady stosowania i pliki do pobrania.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#356a45">
+<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#23332a; --ink-soft:#4d5e53;
+    --leaf:#356a45; --leaf-d:#274e34; --grass:#7bbf6f;
+    --paper:#fbf8f1; --sage:#ebf1e4; --sage-d:#dce7d0;
+    --sun:#f4b13c; --red:#d24a39; --blue:#3f7dae; --amber:#e0a02b;
+    --line:rgba(35,51,42,.12);
+    --shadow:0 14px 40px -24px rgba(39,78,52,.55);
+    --r:18px;
+    --head:'Baloo 2',system-ui,sans-serif;
+    --body:'Nunito Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+  h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;margin-bottom:.6rem}
+  h3{font-size:1.15rem;font-weight:600}
+  p{margin:0 0 1rem}
+  a{color:var(--leaf-d);text-underline-offset:3px}
+  img{max-width:100%;display:block}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--sage);padding:.1em .35em;border-radius:5px}
+  .wrap{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+  section{padding:clamp(3rem,7vw,5rem) 0;border-top:1px solid var(--line)}
+  .eyebrow{font-family:var(--head);font-weight:600;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);margin:0 0 .5rem}
+  .lead{font-size:1.1rem;color:var(--ink-soft);max-width:62ch}
+  .muted{color:var(--ink-soft)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+
+  /* intro */
+  .intro{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2.5rem,6vw,4rem);border:0}
+  .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+  .intro h1{font-size:clamp(2.3rem,5.4vw,3.6rem);font-weight:800;letter-spacing:-.01em;margin-bottom:1rem}
+  .intro h1 em{font-style:normal;color:var(--leaf)}
+  .hero-logo{padding:clamp(1.5rem,4vw,2.6rem);display:grid;place-items:center;background:#fff;border-radius:28px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero-logo img{width:min(320px,100%)}
+  .toc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem;padding:0;list-style:none}
+  .toc a{display:inline-block;font-family:var(--head);font-weight:500;font-size:.95rem;text-decoration:none;color:var(--leaf-d);border:1px solid var(--line);background:#fff;border-radius:100px;padding:.35rem .85rem}
+  .toc a:hover{border-color:var(--leaf)}
+
+  /* concept */
+  .concept{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,5vw,3.5rem);align-items:center;margin-top:1.8rem}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .compare figure{margin:0;padding:1rem;display:grid;gap:.6rem;align-content:start}
+  .compare figure img{aspect-ratio:4/3;object-fit:contain;width:100%}
+  .compare figcaption{font-size:.85rem;color:var(--ink-soft);text-align:center}
+  .ideas{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+  .ideas li{display:grid;grid-template-columns:44px 1fr;gap:.9rem;align-items:start}
+  .ideas .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--sage)}
+  .ideas .ic svg{width:30px;height:30px}
+  .ideas b{font-family:var(--head);font-weight:600;font-size:1.05rem;display:block;line-height:1.2}
+  .ideas span{font-size:.95rem;color:var(--ink-soft)}
+
+  /* responsive system */
+  .levels{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.8rem}
+  .level{padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+  .level .stage{height:130px;display:grid;place-items:center;background:var(--paper);border-radius:12px;padding:12px}
+  .level .stage img{max-height:100%;width:auto}
+  .level .n{font-family:var(--head);font-weight:700;color:var(--leaf);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+  .level h3{margin-top:-.4rem}
+  .level p{font-size:.92rem;color:var(--ink-soft);margin:0}
+  .level .use{font-size:.85rem;margin-top:auto;padding-top:.6rem;border-top:1px dashed var(--line)}
+
+  .demo{margin-top:2rem;padding:1.2rem}
+  .demo-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin-bottom:1rem}
+  .demo-bar label{font-family:var(--head);font-weight:600}
+  .demo-bar input{flex:1;min-width:160px;accent-color:var(--leaf)}
+  .demo-bar output{font-family:var(--head);font-weight:600;color:var(--leaf-d);min-width:13ch}
+  .viewport{max-width:100%;margin-inline:auto;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);container-type:inline-size;transition:width .1s}
+  .mock-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 16px;background:rgba(255,255,255,.75);border-bottom:1px solid var(--line)}
+  .mock-head .lg{display:none;height:52px;width:auto}
+  .mock-head .lg-mini{display:block}
+  .mock-burger{width:26px;display:grid;gap:5px;flex:none}
+  .mock-burger i{height:2.4px;background:var(--ink);border-radius:2px}
+  .mock-menu{display:none;gap:1.2rem;font-family:var(--head);font-weight:500;font-size:.95rem}
+  .mock-menu b{background:var(--leaf);color:#fff;border-radius:100px;padding:.25rem .8rem;font-weight:600}
+  .mock-body{display:grid;grid-template-columns:1fr;gap:12px;padding:18px 16px 22px}
+  .mock-body i{display:block;height:10px;border-radius:6px;background:var(--sage-d)}
+  .mock-body i:nth-child(1){height:22px;width:70%;background:var(--sage-d)}
+  .mock-body i:nth-child(3){width:85%}
+  .mock-foot{display:grid;place-items:start;padding:18px 16px;background:var(--leaf-d)}
+  .mock-foot img{height:72px;width:auto}
+  @container (min-width:340px){
+    .mock-head .lg-mini{display:none}
+    .mock-head .lg-compact{display:block}
+  }
+  @container (min-width:760px){
+    .mock-burger{display:none}
+    .mock-menu{display:flex}
+    .mock-foot img{height:96px}
+  }
+  .demo-note{font-size:.9rem;color:var(--ink-soft);margin:.9rem 0 0}
+
+  /* variants */
+  .tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.6rem 0 1.2rem}
+  .tabs button{font:600 .95rem var(--head);border:1px solid var(--line);background:#fff;color:var(--ink);padding:.4rem .9rem;border-radius:100px;cursor:pointer}
+  .tabs button[aria-pressed="true"]{background:var(--leaf);border-color:var(--leaf);color:#fff}
+  .variants{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+  .var{overflow:hidden;display:flex;flex-direction:column}
+  .var .stage{height:190px;display:grid;place-items:center;padding:22px}
+  .var .stage img{max-height:100%;max-width:100%;width:auto}
+  .var .meta{padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;border-top:1px solid var(--line);background:#fff}
+  .var .meta b{font-family:var(--head);font-weight:600;font-size:1rem;line-height:1.15;display:block}
+  .var .meta small{font-size:.8rem;color:var(--ink-soft)}
+  .dl{display:flex;gap:.3rem;flex:none}
+  .dl a{font:700 .72rem var(--body);letter-spacing:.04em;text-decoration:none;color:var(--leaf-d);border:1px solid var(--line);border-radius:7px;padding:.25rem .45rem}
+  .dl a:hover{border-color:var(--leaf);background:var(--sage)}
+  .bg-paper{background:var(--paper)} .bg-white{background:#fff} .bg-leaf{background:var(--leaf)} .bg-dark{background:#1d2a22}
+  .bg-photo{background:linear-gradient(135deg,#9cc596,#5b8f68 55%,#3c6e4a)}
+
+  /* colors */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:.9rem;margin-top:1.6rem}
+  .sw{overflow:hidden}
+  .sw .chip{height:92px}
+  .sw div:last-child{padding:.7rem .9rem}
+  .sw b{font-family:var(--head);font-weight:600;display:block;line-height:1.2}
+  .sw small{font-size:.8rem;color:var(--ink-soft);display:block}
+  .sw code{background:none;padding:0;font-size:.8rem}
+
+  /* type */
+  .type{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.6rem}
+  .type .card{padding:1.4rem}
+  .type .big{font-size:3.2rem;line-height:1;margin:.6rem 0}
+  .type .baloo{font-family:var(--head);font-weight:800}
+  .type .nunito{font-family:var(--body);font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:1.6rem;margin:1.2rem 0 1rem}
+
+  /* rules */
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.6rem}
+  .rules .card{padding:1.4rem}
+  .space{position:relative;margin:1rem auto .4rem;width:max-content;max-width:100%;padding:28px;background:repeating-linear-gradient(45deg,rgba(53,106,69,.1) 0 6px,transparent 6px 12px);border:1.5px dashed var(--leaf);border-radius:6px}
+  .space img{height:84px;width:auto;background:var(--paper);outline:1.5px solid rgba(53,106,69,.35)}
+  .space .x{position:absolute;font:700 .78rem var(--head);color:var(--leaf)}
+  .minsizes{width:100%;border-collapse:collapse;font-size:.94rem;margin-top:.6rem}
+  .minsizes td,.minsizes th{text-align:left;padding:.55rem .4rem;border-bottom:1px solid var(--line);vertical-align:middle}
+  .minsizes th{font-family:var(--head);font-weight:600}
+  .minsizes img{height:22px;width:auto;display:inline-block;vertical-align:middle;margin-right:.5rem}
+  .donts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
+  .dont{padding:1rem;text-align:center}
+  .dont .stage{height:110px;display:grid;place-items:center;border-radius:10px;background:var(--paper);overflow:hidden;position:relative}
+  .dont .stage img{height:62px;width:auto}
+  .dont .stage::after{content:"";position:absolute;inset:auto 8px 8px auto;width:24px;height:24px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 8l8 8M16 8l-8 8' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center/100% no-repeat}
+  .dont p{font-size:.88rem;margin:.6rem 0 0;color:var(--ink-soft)}
+
+  /* applications */
+  .apps{display:grid;grid-template-columns:1.05fr .95fr;gap:1.2rem;margin-top:1.6rem;align-items:start}
+  .apps>*,.apps-side>*{min-width:0}
+  .apps-side{display:grid;gap:1.2rem}
+  .paper-a4{aspect-ratio:210/297;background:#fff;border-radius:6px;box-shadow:0 30px 60px -30px rgba(35,51,42,.45),0 0 0 1px var(--line);padding:7% 8%;display:flex;flex-direction:column;font-size:clamp(.5rem,1.15vw,.78rem);color:var(--ink-soft);position:relative;overflow:hidden}
+  .paper-a4 .lh{display:flex;justify-content:space-between;align-items:flex-start;gap:1em;padding-bottom:1.4em;border-bottom:1px solid var(--line)}
+  .paper-a4 .lh img{width:52%}
+  .paper-a4 .lh address{font-style:normal;text-align:right;line-height:1.55}
+  .paper-a4 .dots{display:flex;gap:.45em;margin:1.6em 0 1.2em}
+  .paper-a4 .dots i{width:.7em;height:.7em;border-radius:50%}
+  .paper-a4 .ln{height:.55em;border-radius:4px;background:#eef0ec;margin:.55em 0}
+  .paper-a4 .ft{margin-top:auto;padding-top:1em;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1em;font-size:.85em}
+  .paper-a4 .hill{position:absolute;left:0;right:0;bottom:0;height:9%;background:var(--sage);clip-path:path('M0 30 C120 0 260 10 380 26 C520 44 640 6 800 18 V200 H0Z');opacity:.8;z-index:0}
+  .paper-a4 .ft{position:relative;z-index:1}
+  .badge{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:1.2rem;background:var(--leaf);color:#fff;border-radius:var(--r)}
+  .badge img{width:96px;height:96px}
+  .badge b{font-family:var(--head);font-size:1.35rem;font-weight:700;display:block;line-height:1.1}
+  .badge small{color:#cfe3c6}
+  .social{display:flex;gap:1rem;align-items:center;padding:1.2rem}
+  .social .av{width:76px;height:76px;border-radius:50%;background:var(--paper);display:grid;place-items:center;flex:none;border:1px solid var(--line)}
+  .social .av img{width:62px}
+  .social b{font-family:var(--head);font-weight:700;font-size:1.05rem;display:block}
+  .tabs-strip{display:flex;gap:.6rem;align-items:center;padding:1rem 1.2rem;background:#dfe3e8;border-radius:var(--r);overflow:hidden;white-space:nowrap}
+  .tab-pill{display:flex;align-items:center;gap:.5rem;background:#fff;border-radius:10px 10px 0 0;padding:.45rem .8rem;font-size:.85rem;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tab-pill img{width:16px;height:16px;flex:none}
+  .tab-pill.dim{background:transparent;color:#59606a}
+
+  /* code + downloads */
+  pre{background:#1d2a22;color:#e8efe6;border-radius:14px;padding:1.1rem 1.2rem;overflow:auto;font-size:.85rem;line-height:1.55;margin:1rem 0 0}
+  pre code{background:none;padding:0;color:inherit;font-size:inherit}
+  pre .c{color:#8fb59a}
+  .files{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.6rem}
+  .files .card{padding:1.2rem}
+  .files ul{margin:.5rem 0 0;padding-left:1.1rem;font-size:.93rem}
+  .files li{margin:.2rem 0}
+
+  footer{padding:2.4rem 0 3rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
+  footer img{height:44px;width:auto}
+
+  @media (max-width:960px){
+    .levels{grid-template-columns:repeat(2,1fr)}
+    .donts{grid-template-columns:repeat(2,1fr)}
+    .apps{grid-template-columns:1fr}
+    .paper-a4{max-width:520px;margin-inline:auto;width:100%;font-size:clamp(.5rem,1.9vw,.78rem)}
+  }
+  @media (max-width:760px){
+    .intro-grid,.concept,.type,.rules{grid-template-columns:1fr}
+    .intro-grid .hero-logo{order:-1}
+  }
+  @media (max-width:520px){
+    .levels{grid-template-columns:1fr}
+    .compare{grid-template-columns:1fr 1fr;gap:.6rem}
+    .type .big{font-size:2.4rem}
+    .type .nunito{font-size:1.15rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== INTRO ===== -->
+<header class="intro">
+  <div class="wrap intro-grid">
+    <div>
+      <p class="eyebrow">Księga znaku · 2026</p>
+      <h1>Nowe logo <em>Przedszkola św.&nbsp;Jacka</em></h1>
+      <p class="lead">Radosny, nowoczesny znak, który wyrasta z dawnego logo: smukła wieża kościoła, uśmiechnięte słońce i trzy przedszkolne grupy. Zestaw dopasowuje się do miejsca — od nagłówka strony i pieczątki, po papier firmowy i ikonę w przeglądarce.</p>
+      <ul class="toc">
+        <li><a href="#koncepcja">Koncepcja</a></li>
+        <li><a href="#responsywnosc">Responsywność</a></li>
+        <li><a href="#warianty">Warianty</a></li>
+        <li><a href="#kolory">Kolory</a></li>
+        <li><a href="#typografia">Typografia</a></li>
+        <li><a href="#zasady">Zasady</a></li>
+        <li><a href="#zastosowania">Zastosowania</a></li>
+        <li><a href="#pliki">Pliki</a></li>
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="logo/svg/logo-pionowe.svg" alt="Logo Przedszkola św. Jacka w Straszynie — wersja pionowa">
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===== CONCEPT ===== -->
+<section id="koncepcja">
+  <div class="wrap">
+    <p class="eyebrow">Koncepcja</p>
+    <h2>Od dawnego logo do nowego znaku</h2>
+    <p class="lead">Zachowaliśmy to, co rodzice i dzieci znają: wieżę parafii, słońce i owady. Zamiast ilustracji z wieloma postaciami powstał prosty znak, czytelny zarówno na dużym banerze, jak i w ikonce 16 px.</p>
+    <div class="concept">
+      <div class="compare">
+        <figure class="card"><img src="assets/dawne-logo.webp" alt="Dawne logo przedszkola: wieża kościoła, słońce, dzieci i owady"><figcaption>Dawne logo</figcaption></figure>
+        <figure class="card"><img src="logo/svg/sygnet.svg" alt="Nowy sygnet przedszkola"><figcaption>Nowy sygnet</figcaption></figure>
+      </div>
+      <ul class="ideas">
+        <li><span class="ic"><svg width="26" height="26" viewBox="40 8 40 108"><path d="M60 23 64.2 50V58L71 65V116H49V65L55.8 58V50Z" fill="#356a45"/></svg></span><span><b>Wieża kościoła św. Jacka</b><span>Smukła iglica z dawnego logo — przedszkole działa przy parafii i w budynku połączonym z kościołem.</span></span></li>
+        <li><span class="ic"><svg width="28" height="28" viewBox="0 0 40 40"><circle cx="20" cy="20" r="10" fill="#f4b13c"/><path d="M15.5 18.6q1.6-2 3.2 0M21.3 18.6q1.6-2 3.2 0M16 22.4q4 4 8 0" stroke="#8a520c" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span><span><b>Uśmiechnięte słońce</b><span>Ciepło i radość dnia w przedszkolu. Słońce wychodzi poza łuk — znak jest żywy, nie zamknięty w ramce.</span></span></li>
+        <li><span class="ic"><svg width="30" height="16" viewBox="0 0 30 16"><circle cx="5" cy="8" r="4.5" fill="#d24a39"/><circle cx="15" cy="8" r="4.5" fill="#3f7dae"/><circle cx="25" cy="8" r="4.5" fill="#e0a02b"/></svg></span><span><b>Biedronki, Motylki, Pszczółki</b><span>Trzy grupy przedszkolne. W małych wersjach zamieniają się w trzy kolorowe kropki na łące.</span></span></li>
+        <li><span class="ic"><svg width="26" height="26" viewBox="16 8 88 108"><path d="M20 100V52a40 40 0 0 1 80 0v48a12 12 0 0 1-12 12H32a12 12 0 0 1-12-12z" fill="#356a45"/><path d="M20 96C38 85 50 88 60 91c14 4 26 6 40-4v24H20z" fill="#7bbf6f"/></svg></span><span><b>Łuk i zielone wzgórze</b><span>Kształt okna i otwartych drzwi — zaproszenie do środka. Zieleń przypomina sad, las i ogród wokół przedszkola.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESPONSIVE ===== -->
+<section id="responsywnosc">
+  <div class="wrap">
+    <p class="eyebrow">Responsywność</p>
+    <h2>Jeden znak, cztery rozmiary</h2>
+    <p class="lead">Im mniej miejsca, tym mniej szczegółów. Każdy poziom upraszcza poprzedni, ale zachowuje sylwetkę wieży, słońce i kolory — dzięki temu logo zawsze jest rozpoznawalne.</p>
+    <div class="levels">
+      <article class="card level">
+        <div class="stage"><img src="logo/svg/logo-poziome.svg" alt="Logo poziome"></div>
+        <span class="n">Poziom 1 · duży</span>
+        <h3>Logo pełne</h3>
+        <p>Sygnet z owadami i trzywierszowy napis. Wersja pozioma lub pionowa.</p>
+        <p class="use">Stopka strony, plakaty, papier firmowy, dyplomy. Od 90&nbsp;px / 30&nbsp;mm wysokości.</p>
+      </article>
+      <article class="card level">
+        <div class="stage"><img src="logo/svg/logo-kompaktowe.svg" alt="Logo kompaktowe"></div>
+        <span class="n">Poziom 2 · średni</span>
+        <h3>Logo kompaktowe</h3>
+        <p>Uproszczony sygnet i dwa wiersze — większe litery przy tej samej wysokości.</p>
+        <p class="use">Nagłówek strony, e-maile, pieczątki. Od 36&nbsp;px / 10&nbsp;mm wysokości.</p>
+      </article>
+      <article class="card level">
+        <div class="stage"><img src="logo/svg/sygnet-mini.svg" alt="Sygnet uproszczony"></div>
+        <span class="n">Poziom 3 · mały</span>
+        <h3>Sygnet</h3>
+        <p>Sam znak, gdy nazwa jest obok albo brakuje miejsca na napis.</p>
+        <p class="use">Telefon (wąski ekran), awatar, naklejki, odznaki. Od 24&nbsp;px / 8&nbsp;mm.</p>
+      </article>
+      <article class="card level">
+        <div class="stage"><img src="logo/svg/ikona.svg" alt="Ikona aplikacji" style="height:72px"></div>
+        <span class="n">Poziom 4 · ikona</span>
+        <h3>Kafelek</h3>
+        <p>Znak wpisany w zaokrąglony kwadrat — czytelny nawet w 16 px.</p>
+        <p class="use">Favicon, ikona na ekranie telefonu, profil w mediach społecznościowych.</p>
+      </article>
+    </div>
+
+    <div class="card demo">
+      <div class="demo-bar">
+        <label for="vw">Szerokość ekranu</label>
+        <input id="vw" type="range" min="300" max="1060" value="1060" step="10">
+        <output id="vwOut" for="vw">1060 px · komputer</output>
+      </div>
+      <div class="viewport" id="viewport">
+        <div class="mock-head">
+          <img class="lg lg-mini" src="logo/svg/sygnet-mini.svg" alt="">
+          <img class="lg lg-compact" src="logo/svg/logo-kompaktowe.svg" alt="">
+          <nav class="mock-menu" aria-hidden="true"><span>O nas</span><span>Grupy</span><span>Oferta</span><span>Opłaty</span><span>Kontakt</span><b>Rekrutacja</b></nav>
+          <span class="mock-burger" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="mock-body" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="mock-foot"><img src="logo/svg/logo-poziome-negatyw.svg" alt=""></div>
+      </div>
+      <p class="demo-note">Przesuń suwak: na najwęższych ekranach w nagłówku zostaje sam sygnet, od 340&nbsp;px (czyli na typowym telefonie) jest logo kompaktowe, a w stopce zawsze jest miejsce na pełny napis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VARIANTS ===== -->
+<section id="warianty">
+  <div class="wrap">
+    <p class="eyebrow">Warianty</p>
+    <h2>Kolor, negatyw i wersje jednobarwne</h2>
+    <p class="lead">Wersja kolorowa jest podstawowa. Na zielonym lub ciemnym tle użyj negatywu, a do druku jednym kolorem, grawerunku czy pieczątki — wersji jednobarwnych. Wszystkie pliki mają przezroczyste tło.</p>
+    <div class="tabs" role="group" aria-label="Układ logo" id="tabs">
+      <button type="button" data-l="logo-poziome" aria-pressed="true">Poziome</button>
+      <button type="button" data-l="logo-pionowe" aria-pressed="false">Pionowe</button>
+      <button type="button" data-l="logo-kompaktowe" aria-pressed="false">Kompaktowe</button>
+      <button type="button" data-l="logo-formalne" aria-pressed="false">Formalne</button>
+      <button type="button" data-l="sygnet" aria-pressed="false">Sygnet</button>
+      <button type="button" data-l="sygnet-mini" aria-pressed="false">Sygnet mini</button>
+    </div>
+    <div class="variants" id="variants"></div>
+  </div>
+</section>
+
+<!-- ===== COLORS ===== -->
+<section id="kolory">
+  <div class="wrap">
+    <p class="eyebrow">Kolory</p>
+    <h2>Paleta zieleni, słońca i trzech grup</h2>
+    <p class="lead">Kolory są te same, co na stronie przedszkola. Zieleń prowadzi, a czerwień, błękit i miód należą do Biedronek, Motylków i Pszczółek — można nimi oznaczać materiały poszczególnych grup.</p>
+    <div class="swatches">
+      <div class="card sw"><div class="chip" style="background:#356a45"></div><div><b>Zieleń liścia</b><small>łuk, napisy</small><code>#356A45</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#7bbf6f"></div><div><b>Łąka</b><small>wzgórze</small><code>#7BBF6F</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#f4b13c"></div><div><b>Słońce</b><small>słońce, akcent nad „ś”</small><code>#F4B13C</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#23332a"></div><div><b>Atrament</b><small>główny napis, druk 1-kolorowy</small><code>#23332A</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#fbf8f1;border-bottom:1px solid var(--line)"></div><div><b>Papier</b><small>tło, negatyw</small><code>#FBF8F1</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#d24a39"></div><div><b>Biedronki</b><small>czerwień</small><code>#D24A39</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#3f7dae"></div><div><b>Motylki</b><small>błękit</small><code>#3F7DAE</code></div></div>
+      <div class="card sw"><div class="chip" style="background:#e0a02b"></div><div><b>Pszczółki</b><small>miód</small><code>#E0A02B</code></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TYPE ===== -->
+<section id="typografia">
+  <div class="wrap">
+    <p class="eyebrow">Typografia</p>
+    <h2>Zaokrąglone litery, jak pisane kredką</h2>
+    <p class="lead">W plikach logo napisy są zamienione na krzywe, więc nie trzeba instalować fontów. Do dokumentów i na stronę używaj tych samych krojów — oba są bezpłatne (Google Fonts).</p>
+    <div class="type">
+      <div class="card">
+        <p class="eyebrow">Nagłówki i nazwa</p>
+        <h3>Baloo 2 — ExtraBold / SemiBold</h3>
+        <p class="big baloo">św. Jacka</p>
+        <p class="muted" style="font-family:var(--head);font-size:1.2rem;margin:0">Aa Ąą Ćć Ęę Łł Ńń Óó Śś Źź Żż 0123456789</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Tekst i małe napisy</p>
+        <h3>Nunito Sans — Regular / ExtraBold</h3>
+        <p class="nunito">Przedszkole</p>
+        <p class="muted" style="margin:0">Wersaliki z szerokim odstępem (0,2&nbsp;em) dla krótkich etykiet; zwykły tekst — Regular 11–12&nbsp;pt w dokumentach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RULES ===== -->
+<section id="zasady">
+  <div class="wrap">
+    <p class="eyebrow">Zasady</p>
+    <h2>Pole ochronne i minimalne rozmiary</h2>
+    <div class="rules">
+      <div class="card">
+        <h3>Pole ochronne</h3>
+        <p class="muted" style="font-size:.95rem">Wokół logo zostaw wolną przestrzeń równą ¼ wysokości sygnetu (mniej więcej szerokość wieży). Nic nie powinno w nią wchodzić — tekst, krawędź kartki ani zdjęcie.</p>
+        <div class="space">
+          <span class="x" style="top:6px;left:50%;transform:translateX(-50%)">¼ H</span>
+          <span class="x" style="left:6px;top:50%;transform:translateY(-50%)">¼ H</span>
+          <img src="logo/svg/logo-poziome.svg" alt="Logo z zaznaczonym polem ochronnym">
+        </div>
+      </div>
+      <div class="card">
+        <h3>Minimalne rozmiary</h3>
+        <table class="minsizes">
+          <thead><tr><th>Wersja</th><th>Ekran</th><th>Druk</th></tr></thead>
+          <tbody>
+            <tr><td><img src="logo/svg/logo-poziome.svg" alt=""> Pełne</td><td>90 px wys.</td><td>30 mm wys.</td></tr>
+            <tr><td><img src="logo/svg/logo-kompaktowe.svg" alt=""> Kompaktowe</td><td>36 px wys.</td><td>10 mm wys.</td></tr>
+            <tr><td><img src="logo/svg/sygnet-mini.svg" alt=""> Sygnet</td><td>24 px</td><td>8 mm</td></tr>
+            <tr><td><img src="logo/svg/ikona.svg" alt=""> Ikona</td><td>16 px</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h3 style="margin-top:2.2rem">Czego unikać</h3>
+    <div class="donts">
+      <div class="card dont"><div class="stage"><img src="logo/svg/logo-poziome.svg" alt="" style="transform:scaleX(1.45)"></div><p>Nie rozciągaj ani nie ściskaj logo.</p></div>
+      <div class="card dont"><div class="stage"><img src="logo/svg/logo-poziome.svg" alt="" style="filter:hue-rotate(160deg)"></div><p>Nie zmieniaj kolorów spoza palety.</p></div>
+      <div class="card dont"><div class="stage bg-leaf" style="background:var(--leaf)"><img src="logo/svg/logo-poziome.svg" alt=""></div><p>Na zieleni używaj negatywu, nie wersji kolorowej.</p></div>
+      <div class="card dont"><div class="stage"><img src="logo/svg/logo-poziome.svg" alt="" style="filter:drop-shadow(4px 6px 3px rgba(0,0,0,.5));transform:rotate(-8deg)"></div><p>Bez cieni, obrysów i obracania.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPLICATIONS ===== -->
+<section id="zastosowania">
+  <div class="wrap">
+    <p class="eyebrow">Zastosowania</p>
+    <h2>Logo w dokumentach i w sieci</h2>
+    <div class="apps">
+      <div class="paper-a4" aria-label="Przykład papieru firmowego A4">
+        <div class="lh">
+          <img src="logo/svg/logo-formalne.svg" alt="">
+          <address>ul. Poprzeczna 24<br>83-010 Straszyn<br>tel. 507 700 418<br>przedszkole@straszyn.org</address>
+        </div>
+        <div class="dots"><i style="background:var(--red)"></i><i style="background:var(--blue)"></i><i style="background:var(--amber)"></i></div>
+        <div class="ln" style="width:38%;background:#dfe7da;height:.9em"></div>
+        <div class="ln" style="width:22%"></div>
+        <div style="height:1.4em"></div>
+        <div class="ln"></div><div class="ln"></div><div class="ln" style="width:92%"></div><div class="ln"></div><div class="ln" style="width:64%"></div>
+        <div style="height:1em"></div>
+        <div class="ln"></div><div class="ln" style="width:88%"></div><div class="ln" style="width:74%"></div>
+        <div class="ft"><span>Niepubliczne Przedszkole przy Parafii pw. św. Jacka Odrowąża w Straszynie</span><span>przedszkole@straszyn.org</span></div>
+        <div class="hill"></div>
+      </div>
+      <div class="apps-side">
+        <div class="badge">
+          <img src="logo/svg/sygnet-negatyw.svg" alt="">
+          <div><small>Identyfikator · grupa Motylki</small><b>Pani Ania</b><small>wychowawczyni</small></div>
+        </div>
+        <div class="card social">
+          <span class="av"><img src="logo/svg/sygnet-mini.svg" alt=""></span>
+          <div><b>Przedszkole św. Jacka</b><span class="muted" style="font-size:.9rem">Awatar w mediach społecznościowych — sygnet na kremowym kole.</span></div>
+        </div>
+        <div class="tabs-strip" aria-label="Favicon w karcie przeglądarki">
+          <span class="tab-pill"><img src="favicon/favicon.svg" alt="">Przedszkole św. Jacka w Straszynie</span>
+          <span class="tab-pill dim">Nowa karta</span>
+        </div>
+        <div class="card" style="padding:1rem"><img src="favicon/og-image.png" alt="Grafika do udostępniania linku (1200×630)" style="border-radius:10px"><p class="muted" style="font-size:.85rem;margin:.6rem 0 0">Grafika Open Graph — pokazuje się przy udostępnianiu strony na Facebooku czy w komunikatorach.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CODE + FILES ===== -->
+<section id="pliki">
+  <div class="wrap">
+    <p class="eyebrow">Wdrożenie i pliki</p>
+    <h2>Jak użyć logo</h2>
+    <p class="lead">Na stronie używaj plików SVG — są ostre na każdym ekranie i lekkie. Do Worda, Canvy czy drukarni sprawdzą się też PNG z przezroczystym tłem.</p>
+    <pre><code><span class="c">&lt;!-- nagłówek strony: sygnet na najwęższych ekranach, logo kompaktowe od 340 px --&gt;</span>
+&lt;a class="brand" href="/"&gt;
+  &lt;picture&gt;
+    &lt;source media="(min-width: 340px)" srcset="brand/logo/svg/logo-kompaktowe.svg"&gt;
+    &lt;img src="brand/logo/svg/sygnet-mini.svg" alt="Przedszkole św. Jacka w Straszynie" height="48"&gt;
+  &lt;/picture&gt;
+&lt;/a&gt;
+
+<span class="c">&lt;!-- w &lt;head&gt; --&gt;</span>
+&lt;link rel="icon" href="brand/favicon/favicon.svg" type="image/svg+xml"&gt;
+&lt;link rel="icon" href="brand/favicon/favicon-32.png" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="brand/favicon/apple-touch-icon.png"&gt;
+&lt;meta property="og:image" content="https://ADRES-STRONY/brand/favicon/og-image.png"&gt;</code></pre>
+    <div class="files">
+      <div class="card"><h3>Strona internetowa</h3><ul><li><a href="logo/svg/logo-kompaktowe.svg" download>logo-kompaktowe.svg</a> — nagłówek</li><li><a href="logo/svg/logo-poziome-negatyw.svg" download>logo-poziome-negatyw.svg</a> — stopka</li><li><a href="favicon/favicon.svg" download>favicon.svg</a>, <a href="favicon/favicon-32.png" download>favicon-32.png</a></li><li><a href="favicon/og-image.png" download>og-image.png</a></li></ul></div>
+      <div class="card"><h3>Dokumenty i druk</h3><ul><li><a href="logo/png/logo-formalne.png" download>logo-formalne.png</a> — pisma, umowy</li><li><a href="logo/png/logo-poziome.png" download>logo-poziome.png</a> — ogłoszenia</li><li><a href="logo/png/logo-pionowe.png" download>logo-pionowe.png</a> — plakaty, dyplomy</li><li><a href="logo/svg/logo-poziome-mono.svg" download>logo-poziome-mono.svg</a> — pieczątka, ksero</li></ul></div>
+      <div class="card"><h3>Ikony i media</h3><ul><li><a href="favicon/icon-512.png" download>icon-512.png</a> — profil, aplikacja</li><li><a href="favicon/apple-touch-icon.png" download>apple-touch-icon.png</a></li><li><a href="logo/png/sygnet.png" download>sygnet.png</a> — naklejki, gadżety</li><li>Wszystkie warianty: <code>brand/logo/svg</code> i <code>brand/logo/png</code></li></ul></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo/svg/logo-kompaktowe.svg" alt="Przedszkole św. Jacka w Straszynie">
+    <span>Księga znaku · pliki generuje <code>brand/tools/build_logo.py</code></span>
+  </div>
+</footer>
+
+<script>
+  // demo responsywności
+  const vw = document.getElementById('vw'), out = document.getElementById('vwOut'), port = document.getElementById('viewport');
+  const fitMax = () => { // suwak nie wychodzi poza dostępną szerokość
+    const max = Math.max(320, Math.floor(port.parentElement.clientWidth / 10) * 10 - 40);
+    vw.max = Math.min(1060, max); if (+vw.value > +vw.max) vw.value = vw.max;
+  };
+  const setW = () => {
+    const w = +vw.value;
+    port.style.width = w + 'px';
+    out.textContent = w + ' px · ' + (w < 340 ? 'wąski telefon' : w < 600 ? 'telefon' : w < 760 ? 'tablet' : 'komputer');
+  };
+  vw.addEventListener('input', setW);
+  addEventListener('resize', () => { fitMax(); setW(); });
+  fitMax(); setW();
+
+  // galeria wariantów
+  const COLORS = [
+    ['', 'Kolor', 'na jasnym tle', 'bg-paper'],
+    ['-negatyw', 'Negatyw', 'na zieleni i ciemnych tłach', 'bg-leaf'],
+    ['-zielone', 'Zielone', 'druk jednym kolorem', 'bg-white'],
+    ['-mono', 'Czarne', 'pieczątka, ksero, grawer', 'bg-white'],
+    ['-biale', 'Białe', 'na zdjęciach i ciemnym tle', 'bg-photo'],
+  ];
+  const grid = document.getElementById('variants'), tabs = document.getElementById('tabs');
+  const show = (layout) => {
+    grid.innerHTML = COLORS.map(([s, name, hint, bg]) => `
+      <article class="card var">
+        <div class="stage ${bg}"><img src="logo/svg/${layout}${s}.svg" alt="${layout}${s}" loading="lazy"></div>
+        <div class="meta"><span><b>${name}</b><small>${hint}</small></span>
+          <span class="dl"><a href="logo/svg/${layout}${s}.svg" download>SVG</a><a href="logo/png/${layout}${s}.png" download>PNG</a></span></div>
+      </article>`).join('');
+    tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === layout));
+  };
+  tabs.addEventListener('click', e => { const b = e.target.closest('button'); if (b) show(b.dataset.l); });
+  show('logo-poziome');
+</script>
+</body>
+</html>
