@@ -1,0 +1,11 @@
+{
+  "name": "Przedszkole św. Jacka w Straszynie",
+  "short_name": "Przedszkole św. Jacka",
+  "icons": [
+    { "src": "brand/favicon/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "brand/favicon/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#356a45",
+  "background_color": "#fbf8f1",
+  "display": "browser"
+}

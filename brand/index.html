@@ -93,7 +93,7 @@
   .mock-body i:nth-child(3){width:85%}
   .mock-foot{display:grid;place-items:start;padding:18px 16px;background:var(--leaf-d)}
   .mock-foot img{height:72px;width:auto}
-  @container (min-width:380px){
+  @container (min-width:340px){
     .mock-head .lg-mini{display:none}
     .mock-head .lg-compact{display:block}
   }
@@ -313,7 +313,7 @@
         <div class="mock-body" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         <div class="mock-foot"><img src="logo/svg/logo-poziome-negatyw.svg" alt=""></div>
       </div>
-      <p class="demo-note">Przesuń suwak: na wąskim ekranie w nagłówku zostaje sam sygnet, od 380&nbsp;px pojawia się logo kompaktowe, a w stopce zawsze jest miejsce na pełny napis.</p>
+      <p class="demo-note">Przesuń suwak: na najwęższych ekranach w nagłówku zostaje sam sygnet, od 340&nbsp;px (czyli na typowym telefonie) jest logo kompaktowe, a w stopce zawsze jest miejsce na pełny napis.</p>
     </div>
   </div>
 </section>
@@ -462,10 +462,10 @@
     <p class="eyebrow">Wdrożenie i pliki</p>
     <h2>Jak użyć logo</h2>
     <p class="lead">Na stronie używaj plików SVG — są ostre na każdym ekranie i lekkie. Do Worda, Canvy czy drukarni sprawdzą się też PNG z przezroczystym tłem.</p>
-    <pre><code><span class="c">&lt;!-- nagłówek strony: sygnet na telefonie, logo kompaktowe od 380 px --&gt;</span>
+    <pre><code><span class="c">&lt;!-- nagłówek strony: sygnet na najwęższych ekranach, logo kompaktowe od 340 px --&gt;</span>
 &lt;a class="brand" href="/"&gt;
   &lt;picture&gt;
-    &lt;source media="(min-width: 380px)" srcset="brand/logo/svg/logo-kompaktowe.svg"&gt;
+    &lt;source media="(min-width: 340px)" srcset="brand/logo/svg/logo-kompaktowe.svg"&gt;
     &lt;img src="brand/logo/svg/sygnet-mini.svg" alt="Przedszkole św. Jacka w Straszynie" height="48"&gt;
   &lt;/picture&gt;
 &lt;/a&gt;
@@ -501,7 +501,7 @@
   const setW = () => {
     const w = +vw.value;
     port.style.width = w + 'px';
-    out.textContent = w + ' px · ' + (w < 380 ? 'telefon' : w < 760 ? 'tablet' : 'komputer');
+    out.textContent = w + ' px · ' + (w < 340 ? 'wąski telefon' : w < 600 ? 'telefon' : w < 760 ? 'tablet' : 'komputer');
   };
   vw.addEventListener('input', setW);
   addEventListener('resize', () => { fitMax(); setW(); });
