@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
   .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
-  .filter{font-family:var(--head);font-weight:600;font-size:.95rem;background:#fff;border:1px solid var(--line);color:var(--ink);padding:.5rem 1rem;border-radius:100px;cursor:pointer;transition:.18s}
+  .filter{font-family:var(--head);font-weight:600;font-size:.95rem;background:#fff;border:1px solid var(--line);color:var(--ink);padding:.5rem 1rem;min-height:44px;border-radius:100px;cursor:pointer;transition:.18s}
   .filter:hover{border-color:var(--leaf)}
   .filter.active{background:var(--leaf);color:#fff;border-color:var(--leaf)}
 
@@ -32,12 +32,24 @@
   .tile.t-lg .ph{min-height:270px}
   .tile .c-psz,.tile .c-psz .ttl{color:var(--honey-ink)}
   .tile .hint{position:absolute;inset:0;display:grid;place-items:center;transition:background .2s}
-  .tile:hover .hint{background:rgba(35,51,42,.28)}
+  @media(hover:hover){.tile:hover .hint{background:rgba(35,51,42,.28)}}
   .tile .hint span{font-family:var(--head);font-weight:600;color:#fff;opacity:0;transform:translateY(6px);transition:.2s;font-size:.9rem;background:rgba(0,0,0,.25);padding:.35rem .8rem;border-radius:100px}
-  .tile:hover .hint span{opacity:1;transform:none}
+  @media(hover:hover){.tile:hover .hint span{opacity:1;transform:none}}
 
   @media(max-width:880px){.gallery{columns:2}}
-  @media(max-width:540px){.gallery{columns:1}}
+  @media(max-width:640px){
+    .filters{flex-wrap:nowrap;overflow-x:auto;margin:0 -4vw 1.2rem;padding:0 4vw .2rem;scroll-padding-inline:4vw;scroll-snap-type:x proximity;scrollbar-width:none}
+    .filters::-webkit-scrollbar{display:none}
+    .filter{flex:none;scroll-snap-align:start}
+    .gallery{column-gap:.7rem}
+    .tile{margin-bottom:.7rem}
+    .tile .ph{padding:.8rem}
+    .tile .ttl{font-size:1rem}
+    .tile .ph svg.bgicon{width:64px;height:64px}
+    .tile.t-sm .ph{min-height:120px}
+    .tile.t-md .ph{min-height:160px}
+    .tile.t-lg .ph{min-height:200px}
+  }
 </style>
 <script src="assets/js/main.js" defer></script>
 </head>
@@ -69,10 +81,11 @@
         <li><a href="galeria.html" aria-current="page">Galeria</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
         <li><a href="rekrutacja.html" class="menu-cta">Rekrutacja</a></li>
+        <li class="menu-extra"><a href="tel:+48507700418">📞 507 700 418<small>zapisy i informacje, 10:00–12:00</small></a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      <button type="button" class="burger" id="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -167,6 +180,7 @@
       <span>ul. Poprzeczna 24 · <a href="tel:+48507700418">507 700 418</a> · <a href="mailto:przedszkole@straszyn.org">przedszkole@straszyn.org</a></span>
     </div>
   </div>
+  <a class="to-top" href="#top" aria-label="Wróć na górę strony"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 18V5M5 11l6-6 6 6"/></svg></a>
 </footer>
 </body>
 </html>
