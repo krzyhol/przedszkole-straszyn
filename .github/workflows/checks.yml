@@ -1,0 +1,59 @@
+# Automatyczna kontrola jakości przy każdym pull requeście i zmianie na main.
+# Te same polecenia można uruchomić lokalnie — zob. komentarze przy krokach.
+name: Kontrola jakości
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  html:
+    name: Szablony, linki i poprawność HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # nagłówek/stopka z _partials, metadane SEO, wersje CSS/JS, sitemap.xml, robots.txt
+      - name: Pliki generowane są aktualne
+        run: python3 tools/build_layout.py --check
+
+      - name: Linki wewnętrzne i kotwice
+        run: python3 tools/check_links.py
+
+      - name: Instalacja walidatora W3C (Nu Html Checker)
+        run: npm install --no-save --no-package-lock vnu-jar@26.10.2
+
+      - name: Walidacja HTML i CSS
+        run: |
+          VNU=node_modules/vnu-jar/build/dist/vnu.jar
+          java -jar "$VNU" --format gnu *.html
+          java -jar "$VNU" --format gnu --css assets/css/*.css
+          # księga znaku używa nowych właściwości CSS (@container, clip-path: path()),
+          # których moduł CSS walidatora jeszcze nie zna — tam sprawdzamy tylko HTML
+          java -jar "$VNU" --format gnu --filterpattern '.*CSS: .*' brand/index.html
+
+  lighthouse:
+    name: Lighthouse (dostępność, SEO, dobre praktyki, wydajność)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # progi w lighthouserc.json: dostępność, SEO i dobre praktyki ≥ 95 (błąd), wydajność ≥ 85 (ostrzeżenie)
+      - name: Lighthouse CI
+        run: npx --yes @lhci/cli@0.15.1 autorun
+
+      - name: Raporty Lighthouse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/reports
+          retention-days: 14
